@@ -5,3 +5,9 @@ class HypothesisForm(forms.ModelForm):
     class Meta:
         model = Hypothesis
         fields = ['appointment', 'disease', 'cid']
+
+        labels = {
+            'appointment': 'Consulta',
+            'disease': 'Doença',
+            'cid': 'CID'
+        }

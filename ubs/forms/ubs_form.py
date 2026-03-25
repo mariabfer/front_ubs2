@@ -5,3 +5,8 @@ class UbsForm(forms.ModelForm):
     class Meta:
         model = Ubs
         fields = ['name', 'address']
+
+        labels = {
+            'name': 'Nome da UBS',
+            'address': 'Endereço'
+        }

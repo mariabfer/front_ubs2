@@ -5,3 +5,10 @@ class TelefoneForm(forms.ModelForm):
     class Meta:
         model = Telefone
         fields = ['numero', 'tipo', 'pessoa', 'ubs']
+
+        labels = {
+            'numero': 'Número',
+            'tipo': 'Tipo',
+            'pessoa': 'Pessoa',
+            'ubs': 'UBS'
+        }

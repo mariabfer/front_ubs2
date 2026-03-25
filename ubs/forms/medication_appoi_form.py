@@ -12,3 +12,13 @@ class MedicationAppoiForm(forms.ModelForm):
             'frequency_days',
             'duraction_adm'
         ]
+
+        labels = {
+            'medication': 'Medicamento',
+            'appointment': 'Consulta',
+            'dose': 'Dose',
+            'via': 'Via de Administração',
+            'frequency_days': 'Frequência (dias)',
+            'duraction_adm': 'Duração do Tratamento'
+        }
+

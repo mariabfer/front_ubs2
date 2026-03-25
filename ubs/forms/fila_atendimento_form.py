@@ -16,3 +16,12 @@ class FilaAtendimentoForm(forms.ModelForm):
         widgets = {
             'data_fila': forms.DateInput(attrs={'type': 'date'}),
         }
+
+        labels = {
+            'ubs': 'UBS',
+            'tipo_atendimento': 'Tipo de Atendimento',
+            'data_fila': 'Data',
+            'quantidade_maxima': 'Quantidade Máxima',
+            'medico': 'Médico',
+            'vacina': 'Vacina'
+        }

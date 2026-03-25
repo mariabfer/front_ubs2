@@ -15,3 +15,11 @@ class RecordVaccineForm(forms.ModelForm):
         widgets = {
             'data': forms.DateInput(attrs={'type': 'date'}),
         }
+
+        labels = {
+            'citizen': 'Cidadão',
+            'vaccine_ubs': 'Vacina (UBS)',
+            'nurse': 'Enfermeiro',
+            'ubs': 'UBS',
+            'data': 'Data da Aplicação'
+        }

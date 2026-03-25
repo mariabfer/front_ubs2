@@ -12,3 +12,12 @@ class AppointmentForm(forms.ModelForm):
             'reason',
             'life_habits'
         ]
+
+        labels = {
+            'scheduling': 'Agendamento',
+            'doctor': 'Médico',
+            'ubs': 'UBS',
+            'data': 'Data',
+            'reason': 'Motivo',
+            'life_habits': 'Hábitos de Vida'
+        }

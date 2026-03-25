@@ -17,3 +17,13 @@ class CidadaoForm(forms.ModelForm):
         widgets = {
             'data_nascimento': forms.DateInput(attrs={'type': 'date'}),
         }
+
+        labels = {
+            'num_sus': 'Número do SUS',
+            'data_nascimento': 'Data de Nascimento',
+            'genero': 'Gênero',
+            'naturalidade': 'Naturalidade',
+            'ocupacao': 'Ocupação',
+            'address': 'Endereço',
+            'grupos': 'Grupos Vulneráveis'
+        }

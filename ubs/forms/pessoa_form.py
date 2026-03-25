@@ -5,3 +5,9 @@ class PessoaForm(forms.ModelForm):
     class Meta:
         model = Pessoa
         fields = ['nome_pessoa', 'estado_civil', 'ubs']
+
+        labels = {
+            'nome_pessoa': 'Nome',
+            'estado_civil': 'Estado Civil',
+            'ubs': 'UBS'
+        }

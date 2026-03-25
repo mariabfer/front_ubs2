@@ -15,3 +15,11 @@ class MedicationUbsForm(forms.ModelForm):
         widgets = {
             'validity': forms.DateInput(attrs={'type': 'date'}),
         }
+
+        labels = {
+            'medication': 'Medicamento',
+            'ubs': 'UBS',
+            'num_lote': 'Número do Lote',
+            'available_quantity': 'Quantidade Disponível',
+            'validity': 'Validade'
+        }

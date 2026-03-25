@@ -16,3 +16,12 @@ class ExamForm(forms.ModelForm):
         widgets = {
             'data': forms.DateInput(attrs={'type': 'date'}),
         }
+
+        labels = {
+            'appointment': 'Consulta',
+            'name_exam': 'Nome do Exame',
+            'type': 'Tipo',
+            'status': 'Status',
+            'result': 'Resultado',
+            'data': 'Data do Exame'
+        }

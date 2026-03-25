@@ -5,3 +5,8 @@ class MedicoForm(forms.ModelForm):
     class Meta:
         model = Medico
         fields = ['crm', 'especialidade']
+
+        labels = {
+            'crm': 'CRM',
+            'especialidade': 'Especialidade'
+        }

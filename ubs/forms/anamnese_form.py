@@ -11,3 +11,11 @@ class AnamneseForm(forms.ModelForm):
             'altura',
             'pressao_arterial'
         ]
+
+        labels = {
+            'cidadao': 'Cidadão',
+            'data_anamnese': 'Data da Anamnese',
+            'peso': 'Peso (kg)',
+            'altura': 'Altura (m)',
+            'pressao_arterial': 'Pressão Arterial'
+        }
