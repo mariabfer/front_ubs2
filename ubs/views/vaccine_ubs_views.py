@@ -1,0 +1,38 @@
+from django.shortcuts import render, redirect, get_object_or_404
+from ..models import Vaccine_ubs
+from ..forms import VaccineUbsForm
+
+
+def create_vaccine_ubs(request):
+    form = VaccineUbsForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('list_vaccine_ubs')
+    return render(request, 'vaccine_ubs/create.html', {'form': form})
+
+
+def list_vaccine_ubs(request):
+    data = Vaccine_ubs.objects.select_related('vaccine', 'ubs').all()
+    return render(request, 'vaccine_ubs/list.html', {'items': data})
+
+
+def detail_vaccine_ubs(request, id):
+    obj = get_object_or_404(Vaccine_ubs, id=id)
+    return render(request, 'vaccine_ubs/detail.html', {'obj': obj})
+
+
+def update_vaccine_ubs(request, id):
+    obj = get_object_or_404(Vaccine_ubs, id=id)
+    form = VaccineUbsForm(request.POST or None, instance=obj)
+    if form.is_valid():
+        form.save()
+        return redirect('list_vaccine_ubs')
+    return render(request, 'vaccine_ubs/update.html', {'form': form})
+
+
+def delete_vaccine_ubs(request, id):
+    obj = get_object_or_404(Vaccine_ubs, id=id)
+    if request.method == "POST":
+        obj.delete()
+        return redirect('list_vaccine_ubs')
+    return render(request, 'vaccine_ubs/delete.html', {'obj': obj})

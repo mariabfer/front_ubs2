@@ -1,0 +1,23 @@
+{% extends 'ubs/base.html' %}
+
+{%block titulo %}Pagina inicial{% endblock %}
+
+{% block corpo %}
+<h2>pagina 1</h2>  
+    
+{% if endereços %}
+    <ul>
+        {% for endereço in endereços %}
+            <li>
+                <a href="{% url 'endereco' endereço.id %}">
+                {{ endereço.street }}, {{ endereço.number }} - {{ endereço.city }}</a>
+
+            </li>
+        {% endfor %}
+    </ul>
+
+{% else %}
+    <p>Não há endereços cadastrados.</p>
+{% endif %}
+
+{% endblock %}

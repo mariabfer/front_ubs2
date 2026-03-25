@@ -1,0 +1,38 @@
+from django.shortcuts import render, redirect, get_object_or_404
+from ..models import Email
+from ..forms import EmailForm
+
+
+def create_email(request):
+    form = EmailForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('list_email')
+    return render(request, 'email/create.html', {'form': form})
+
+
+def list_email(request):
+    data = Email.objects.select_related('pessoa', 'ubs').all()
+    return render(request, 'email/list.html', {'emails': data})
+
+
+def detail_email(request, id):
+    obj = get_object_or_404(Email, id=id)
+    return render(request, 'email/detail.html', {'obj': obj})
+
+
+def update_email(request, id):
+    obj = get_object_or_404(Email, id=id)
+    form = EmailForm(request.POST or None, instance=obj)
+    if form.is_valid():
+        form.save()
+        return redirect('list_email')
+    return render(request, 'email/update.html', {'form': form})
+
+
+def delete_email(request, id):
+    obj = get_object_or_404(Email, id=id)
+    if request.method == "POST":
+        obj.delete()
+        return redirect('list_email')
+    return render(request, 'email/delete.html', {'obj': obj})
