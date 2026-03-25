@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from ..models import Focus_priority
+from ..models import FocusPriority 
 from ..forms import FocusPriorityForm
 
 
@@ -14,7 +14,7 @@ def create_focus_priority(request):
 
 
 def list_focus_priority(request):
-    data = Focus_priority.objects.select_related('type_vuln_group').all()
+    data = FocusPriority .objects.select_related('grupo_vulneravel').all()
     
     return render(request, 'focus_priority/list.html', {
         'items': data

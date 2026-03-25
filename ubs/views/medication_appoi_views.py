@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from ..models import Medication_appoi, Appointment
+from ..models import MedicationAppoi , Appointment
 from ..forms import MedicationAppoiForm
 
 
@@ -18,7 +18,7 @@ def create_medication_appoi(request, appointment_id):
 
 
 def delete_medication_appoi(request, id):
-    obj = get_object_or_404(Medication_appoi, id=id)
+    obj = get_object_or_404(MedicationAppoi , id=id)
     appointment_id = obj.appointment.id
     
     obj.delete()

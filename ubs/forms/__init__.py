@@ -8,7 +8,7 @@ from .documento_form import DocumentoForm
 from .email_form import EmailForm
 from .enfermeiro_form import EnfermeiroForm
 from .exam_form import ExamForm
-from .fila_atendimento_form import FilaAtendimentoForm
+from .fila_atendimento_form import FilaAtendimentoForm as FilaForm
 from .focus_priority_form import FocusPriorityForm
 from .grupo_vulneravel_form import GrupoVulneravelForm
 from .hypothesis_form import HypothesisForm

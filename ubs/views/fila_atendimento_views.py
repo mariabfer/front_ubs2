@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from ..models import Fila_atendimento
+from ..models import FilaAtendimento
 from ..forms import FilaForm
 
 
@@ -12,17 +12,17 @@ def create_fila(request):
 
 
 def list_fila(request):
-    filas = Fila_atendimento.objects.select_related('ubs', 'medico').all()
+    filas = FilaAtendimento.objects.select_related('ubs', 'medico').all()
     return render(request, 'fila/list.html', {'filas': filas})
 
 
 def detail_fila(request, id):
-    obj = get_object_or_404(Fila_atendimento, id=id)
+    obj = get_object_or_404(FilaAtendimento, id=id)
     return render(request, 'fila/detail.html', {'obj': obj})
 
 
 def update_fila(request, id):
-    obj = get_object_or_404(Fila_atendimento, id=id)
+    obj = get_object_or_404(FilaAtendimento, id=id)
     form = FilaForm(request.POST or None, instance=obj)
     if form.is_valid():
         form.save()
@@ -31,7 +31,7 @@ def update_fila(request, id):
 
 
 def delete_fila(request, id):
-    obj = get_object_or_404(Fila_atendimento, id=id)
+    obj = get_object_or_404(FilaAtendimento, id=id)
     if request.method == "POST":
         obj.delete()
         return redirect('list_fila')

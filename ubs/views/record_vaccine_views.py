@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from ..models import Record_vaccine, Cidadao, Vaccine_ubs
+from ..models import RecordVaccine, Cidadao, VaccineUbs 
 from ..forms import RecordVaccineForm
 
 
@@ -17,8 +17,8 @@ def create_record_vaccine(request, num_sus):
     return render(request, 'vaccine_record/create.html', {'form': form})
 
 def list_vaccine_records(request, num_sus):
-    records = Record_vaccine.objects.select_related(
-        'citizen', 'vaccine_ubs', 'nurse', 'ubs'
+    records = RecordVaccine.objects.select_related(
+        'citizen', 'VaccineUbs ', 'nurse', 'ubs'
     ).filter(citizen__num_sus=num_sus)
 
     return render(request, 'vaccine_record/list.html', {

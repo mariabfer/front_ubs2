@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from ..models import Vaccine_ubs
+from ..models import VaccineUbs 
 from ..forms import VaccineUbsForm
 
 
@@ -12,17 +12,17 @@ def create_vaccine_ubs(request):
 
 
 def list_vaccine_ubs(request):
-    data = Vaccine_ubs.objects.select_related('vaccine', 'ubs').all()
+    data = VaccineUbs .objects.select_related('vaccine', 'ubs').all()
     return render(request, 'vaccine_ubs/list.html', {'items': data})
 
 
 def detail_vaccine_ubs(request, id):
-    obj = get_object_or_404(Vaccine_ubs, id=id)
+    obj = get_object_or_404(VaccineUbs, id=id)
     return render(request, 'vaccine_ubs/detail.html', {'obj': obj})
 
 
 def update_vaccine_ubs(request, id):
-    obj = get_object_or_404(Vaccine_ubs, id=id)
+    obj = get_object_or_404(VaccineUbs, id=id)
     form = VaccineUbsForm(request.POST or None, instance=obj)
     if form.is_valid():
         form.save()
@@ -31,7 +31,7 @@ def update_vaccine_ubs(request, id):
 
 
 def delete_vaccine_ubs(request, id):
-    obj = get_object_or_404(Vaccine_ubs, id=id)
+    obj = get_object_or_404(VaccineUbs, id=id)
     if request.method == "POST":
         obj.delete()
         return redirect('list_vaccine_ubs')
