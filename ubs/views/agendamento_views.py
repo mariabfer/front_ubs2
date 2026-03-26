@@ -14,9 +14,11 @@ def create_agendamento(request):
 
 
 def list_agendamento(request):
-    agendamentos = Agendamento.objects.select_related('cidadao').all()
-    return render(request, 'ubs/agendamento/list.html', {'agendamentos': agendamentos})
+    agendamentos = Agendamento.objects.select_related('cidadao').order_by('-prioridade_calculada')
 
+    return render(request, 'ubs/agendamento/list.html', {
+        'agendamentos': agendamentos
+    })
 
 def update_agendamento(request, id):
     agendamento = get_object_or_404(Agendamento, id=id)

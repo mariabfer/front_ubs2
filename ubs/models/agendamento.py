@@ -24,5 +24,18 @@ class Agendamento(models.Model):
 
     prioridade_calculada = models.IntegerField(default=0)
 
+    def calcular_prioridade(self):
+        if not self.cidadao.grupos.exists():
+            return 0
+
+        return sum(
+            grupo.peso_prioridade
+            for grupo in self.cidadao.grupos.all()
+        )
+
+    def save(self, *args, **kwargs):
+        self.prioridade_calculada = self.calcular_prioridade()
+        super().save(*args, **kwargs)
+
     def __str__(self):
         return f"{self.cidadao} - {self.status}"

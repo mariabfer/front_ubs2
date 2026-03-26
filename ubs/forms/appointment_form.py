@@ -8,7 +8,6 @@ class AppointmentForm(forms.ModelForm):
             'scheduling',
             'doctor',
             'ubs',
-            'data',
             'reason',
             'life_habits'
         ]
@@ -17,7 +16,6 @@ class AppointmentForm(forms.ModelForm):
             'scheduling': 'Agendamento',
             'doctor': 'Médico',
             'ubs': 'UBS',
-            'data': 'Data',
             'reason': 'Motivo',
             'life_habits': 'Hábitos de Vida'
         }

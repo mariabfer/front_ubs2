@@ -21,7 +21,8 @@ class Appointment(models.Model):
         on_delete=models.CASCADE
     )
 
-    data = models.DateField()
+    def __str__(self):
+        return f"{self.doctor} - {self.scheduling.data_solicitacao}"
 
     reason = models.TextField()
     life_habits = models.TextField()
