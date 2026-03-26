@@ -1,20 +1,37 @@
 {% extends 'ubs/base.html' %}
 
-{% block titulo %}Lista de Medicos{% endblock %}
+{% block titulo %}Lista de Médicos{% endblock %}
 
 {% block corpo %}
-    <h2>Lista de Medicos</h2>
-    <ul>
-        {% if medicos %}
-            {% for medicos in medicos %}
-                <li>{{ medicos }}</li>
-            {% endfor %}
-        {% else %}
-            <p>Nenhum medico encontrado.</p>
-        {% endif %}
-    </ul>
+<h2>Lista de Médicos</h2>
 
-    {% else %}
-        <p>Nenhum medico encontrado.</p>
-    {% endif %}
+{% if medicos %}
+    <ul>
+        {% for medico in medicos %}
+            <li>
+                <a href="{% url 'detail_medico' medico.id %}">
+                    {{ medico }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Nenhum médico encontrado.</p>
+{% endif %} 
+
+
+<hr>
+
+<a href="{% url 'create_medico' %}">
+    <button style="
+        padding: 10px;
+        background-color: rgb(30, 51, 239);
+        color: white;
+        border: none;
+        border-radius: 5px;
+    ">
+        Adicionar Médico
+    </button>
+</a>
+
 {% endblock %}

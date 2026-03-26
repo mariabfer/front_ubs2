@@ -3,18 +3,34 @@
 {% block titulo %}Lista de Medicamento-Consulta{% endblock %}
 
 {% block corpo %}
-    <h2>Lista de Medicamento-Consulta</h2>
-    <ul>
-        {% if address %}
-            {% for address in address %}
-                <li>{{ address }}</li>
-            {% endfor %}
-        {% else %}
-            <p>Nenhum Medicamento-Consulta encontrado.</p>
-        {% endif %}
-    </ul>
+<h2>Lista de Medicamento-Consulta</h2>
 
-    {% else %}
-        <p>Nenhum Medicamento-Consulta encontrado.</p>
-    {% endif %}
+{% if medications %}
+    <ul>
+        {% for med in medications %}
+            <li>
+                <a href="{% url 'detail_medication_consulta' med.id %}">
+                    {{ med }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Nenhum Medicamento-Consulta encontrado.</p>
+{% endif %}
+
+<hr>
+
+<a href="{% url 'create_medication_consulta' %}">
+    <button style="
+        padding: 10px;
+        background-color: rgb(30, 51, 239);
+        color: white;
+        border: none;
+        border-radius: 5px;
+    ">
+        Adicionar Medicamento-Consulta
+    </button>
+</a>
+
 {% endblock %}

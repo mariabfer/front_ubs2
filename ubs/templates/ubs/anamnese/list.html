@@ -4,17 +4,33 @@
 
 {% block corpo %}
     <h2>Lista de Anamnese</h2>
-    <ul>
-        {% if anamnese %}
-            {% for anamnese in anamnese %}
-                <li>{{ anamnese }}</li>
-            {% endfor %}
-        {% else %}
-            <p>Nenhum anamnese encontrado.</p>
-        {% endif %}
-    </ul>
 
+    {% if anamneses %}
+        <ul>
+            {% for anam in anamneses %}
+                <li>
+                    <a href="{% url 'detail_anamnese' anam.id %}">
+                        {{ anam }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
     {% else %}
-        <p>Nenhum anamnese encontrado.</p>
+        <p>Nenhuma anamnese encontrada.</p>
     {% endif %}
+
+    <hr>
+
+    <a href="{% url 'create_anamnese' %}" >
+    <button style="
+        padding: 10px;
+        background-color: rgb(30, 51, 239);
+        color: white;
+        border: none;
+        border-radius: 5px;
+    ">
+        Adicionar Anamnese
+    </button>
+    </a>
+
 {% endblock %}

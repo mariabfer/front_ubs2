@@ -1,20 +1,30 @@
 {% extends 'ubs/base.html' %}
 
-{% block titulo %}Lista de Endereço{% endblock %}
+{% block titulo %}Lista de Endereços{% endblock %}
 
 {% block corpo %}
-    <h2>Lista de Endereço</h2>
-    <ul>
-        {% if address %}
-            {% for address in address %}
-                <li>{{ address }}</li>
-            {% endfor %}
-        {% else %}
-            <p>Nenhum endereço encontrado.</p>
-        {% endif %}
-    </ul>
+    <h2>Lista de Endereços</h2>
 
+    {% if addresses %}
+        <ul>
+            {% for addr in addresses %}
+                <li>
+                    <a href="{% url 'detail_address' addr.id %}">
+                        {{ addr }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
     {% else %}
         <p>Nenhum endereço encontrado.</p>
     {% endif %}
+
+    <hr>
+
+    <a href="{% url 'create_address' %}">
+        <button style="padding: 10px; background-color: rgb(30, 51, 239); color: white; border: none; border-radius: 5px;">
+            Adicionar Endereço
+        </button>
+    </a>
+
 {% endblock %}

@@ -13,12 +13,12 @@ def create_appointment(request):
 
 def list_appointment(request):
     data = Appointment.objects.select_related('scheduling', 'doctor', 'ubs').all()
-    return render(request, 'appointment/list.html', {'appointments': data})
+    return render(request, 'ubs/appointment/list.html', {'appointments': data})
 
 
 def detail_appointment(request, id):
-    obj = get_object_or_404(Appointment, id=id)
-    return render(request, 'ubs/appointment/detail.html', {'obj': obj})
+    appointment = get_object_or_404(Appointment, id=id)
+    return render(request, 'ubs/appointment/detail.html', {'appointment': appointment})
 
 
 def update_appointment(request, id):

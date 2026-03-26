@@ -1,0 +1,13 @@
+{% extends 'ubs/base.html' %}
+
+{% block titulo %}Detalhes do Foco{% endblock %}
+
+{% block corpo %}
+<h2>Foco de Prioridade</h2>
+
+<p><strong>Vacina:</strong> {{ foco.vaccine }}</p>
+<p><strong>Grupo:</strong> {{ foco.grupo_vulneravel }}</p>
+<p><strong>Ocupação:</strong> {{ foco.ocupacao }}</p>
+
+<a href="{% url 'update_foco' foco.id %}">Editar</a>
+{% endblock %}

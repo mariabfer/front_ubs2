@@ -12,13 +12,13 @@ def create_cidadao(request):
 
 
 def list_cidadao(request):
-    data = Cidadao.objects.select_related('pessoa', 'address', 'ubs').all()
+    data = Cidadao.objects.select_related( 'address').all()
     return render(request, 'ubs/cidadao/list.html', {'cidadaos': data})
 
 
 def detail_cidadao(request, id):
     obj = get_object_or_404(Cidadao, id=id)
-    return render(request, 'ubs/cidadao/detail.html', {'obj': obj})
+    return render(request, 'ubs/cidadao/detail.html', {'cidadao': obj})
 
 
 def update_cidadao(request, id):

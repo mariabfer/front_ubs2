@@ -1,0 +1,22 @@
+{% extends 'ubs/base.html' %}
+
+{% block titulo %}Detalhes do Documento{% endblock %}
+
+{% block corpo %}
+<h2>Documento</h2>
+
+<p><strong>Pessoa:</strong> {{ documento.pessoa }}</p>
+<p><strong>Tipo:</strong> {{ documento.get_tipo_documento_display }}</p>
+<p><strong>Número:</strong> {{ documento.numero_documento }}</p>
+
+<a href="{% url 'update_documento' documento.id %}">
+    <button style="
+        padding: 10px;
+        background-color: rgb(30, 51, 239);
+        color: white;
+        border: none;
+        border-radius: 5px;
+    ">
+        Editar documento
+    </button></a>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'ubs/base.html' %}
+
+{% block titulo %}UBS{% endblock %}
+
+{% block corpo %}
+<h2>UBS</h2>
+
+<p><strong>Nome:</strong> {{ ubs.name }}</p>
+<p><strong>Endereço:</strong> {{ ubs.address }}</p>
+
+<a href="{% url 'update_ubs' ubs.id %}" >
+    <button style="
+        padding: 10px;
+        background-color: rgb(30, 51, 239);
+        color: white;
+        border: none;
+        border-radius: 5px;
+    ">
+        Editar Ubs
+    </button></a>
+{% endblock %} 

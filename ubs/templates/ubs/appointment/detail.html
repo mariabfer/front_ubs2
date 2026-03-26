@@ -1,0 +1,16 @@
+{% extends 'ubs/base.html' %}
+
+{% block titulo %}Detalhes da Consulta{% endblock %}
+
+{% block corpo %}
+<h2>Consulta</h2>
+
+<p><strong>Médico:</strong> {{ appointment.doctor }}</p>
+<p><strong>UBS:</strong> {{ appointment.ubs }}</p>
+<p><strong>Data:</strong> {{ appointment.data }}</p>
+<p><strong>Motivo:</strong> {{ appointment.reason }}</p>
+<p><strong>Hábitos:</strong> {{ appointment.life_habits }}</p>
+<p><strong>Agendamento:</strong> {{ appointment.scheduling }}</p>
+
+<a href="{% url 'update_appointment' appointment.id %}">Editar</a>
+{% endblock %}

@@ -1,20 +1,36 @@
 {% extends 'ubs/base.html' %}
 
-{% block titulo %}Lista de Ubs{% endblock %}
+{% block titulo %}Lista de UBS{% endblock %}
 
 {% block corpo %}
-    <h2>Lista de Ubs</h2>
-    <ul>
-        {% if ubs_list %}
-            {% for ubs_list in ubs_list %}
-                <li>{{ ubs_list }}</li>
-            {% endfor %}
-        {% else %}
-            <p>Nenhuma Ubs encontrado.</p>
-        {% endif %}
-    </ul>
+<h2>Lista de UBS</h2>
 
-    {% else %}
-        <p>Nenhuma Ubs encontrado.</p>
-    {% endif %}
+{% if ubs_list %}
+    <ul>
+        {% for ubs in ubs_list %}
+            <li>
+                <a href="{% url 'detail_ubs' ubs.id %}">
+                    {{ ubs }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Nenhuma UBS encontrada.</p>
+{% endif %}
+
+<hr>
+
+<a href="{% url 'create_ubs' %}">
+    <button style="
+        padding: 10px;
+        background-color: rgb(30, 51, 239);
+        color: white;
+        border: none;
+        border-radius: 5px;
+    ">
+        Adicionar UBS
+    </button>
+</a>
+
 {% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'ubs/base.html' %}
+
+{% block titulo %}Detalhes do Agendamento{% endblock %}
+
+{% block corpo %}
+<h2>Agendamento</h2>
+
+<p><strong>Cidadão:</strong> {{ agendamento.cidadao }}</p>
+<p><strong>Data Solicitação:</strong> {{ agendamento.data_solicitacao }}</p>
+<p><strong>Hora:</strong> {{ agendamento.hora_agendamento }}</p>
+<p><strong>Posição:</strong> {{ agendamento.posicao_atual }}</p>
+<p><strong>Status:</strong> {{ agendamento.get_status_display }}</p>
+<p><strong>Prioridade:</strong> {{ agendamento.prioridade_calculada }}</p>
+
+<a href="{% url 'update_agendamento' agendamento.id %}">Editar</a>
+{% endblock %}

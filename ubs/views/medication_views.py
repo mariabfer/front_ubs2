@@ -17,8 +17,8 @@ def list_medication(request):
 
 
 def detail_medication(request, id):
-    obj = get_object_or_404(Medication, id=id)
-    return render(request, 'ubs/medication/detail.html', {'obj': obj})
+    medication = get_object_or_404(Medication, id=id)
+    return render(request, 'ubs/medication/detail.html', {'medication': medication})
 
 
 def update_medication(request, id):

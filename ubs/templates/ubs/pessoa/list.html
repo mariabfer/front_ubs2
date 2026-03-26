@@ -1,20 +1,36 @@
 {% extends 'ubs/base.html' %}
 
-{% block titulo %}Lista de Pessoa{% endblock %}
+{% block titulo %}Lista de Pessoas{% endblock %}
 
 {% block corpo %}
-    <h2>Lista de Pessoa</h2>
-    <ul>
-        {% if pessoas %}
-            {% for pessoas in pessoas %}
-                <li>{{ pessoas }}</li>
-            {% endfor %}
-        {% else %}
-            <p>Nenhum pessoa encontrado.</p>
-        {% endif %}
-    </ul>
+<h2>Lista de Pessoas</h2>
 
-    {% else %}
-        <p>Nenhum pessoa encontrado.</p>
-    {% endif %}
+{% if pessoas %}
+    <ul>
+        {% for pessoa in pessoas %}
+            <li>
+                <a href="{% url 'detail_pessoa' pessoa.id %}">
+                    {{ pessoa }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Nenhuma pessoa encontrada.</p>
+{% endif %}
+
+<hr>
+
+<a href="{% url 'create_pessoa' %}">
+    <button style="
+        padding: 10px;
+        background-color: rgb(30, 51, 239);
+        color: white;
+        border: none;
+        border-radius: 5px;
+    ">
+        Adicionar Pessoa
+    </button>
+</a>
+
 {% endblock %}

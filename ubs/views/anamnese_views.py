@@ -29,11 +29,6 @@ def update_anamnese(request, id):
     return render(request, 'ubs/anamnese/update.html', {'form': form})
 
 
-def delete_anamnese(request, id):
-    anamnese = get_object_or_404(Anamnese, id=id)
-
-    if request.method == "POST":
-        anamnese.delete()
-        return redirect('list_anamnese')
-
-    return render(request, 'ubs/anamnese/delete.html', {'anamnese': anamnese})
+def detail_anamnese(request, id):
+    anamneses = get_object_or_404(Anamnese, id=id)
+    return render(request, 'ubs/anamnese/detail.html', {'anamnese': anamneses})

@@ -1,0 +1,12 @@
+{% extends 'ubs/base.html' %}
+
+{% block titulo %}Detalhes do Enfermeiro{% endblock %}
+
+{% block corpo %}
+<h2>Enfermeiro</h2>
+
+<p><strong>Nome:</strong> {{ enfermeiro.nome_pessoa }}</p>
+<p><strong>CIP:</strong> {{ enfermeiro.cip }}</p>
+
+<a href="{% url 'update_enfermeiro' enfermeiro.id %}">Editar</a>
+{% endblock %}

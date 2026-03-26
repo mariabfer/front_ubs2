@@ -1,0 +1,22 @@
+{% extends 'ubs/base.html' %}
+
+{% block titulo %}Vacina{% endblock %}
+
+{% block corpo %}
+<h2>Vacina</h2>
+
+<p><strong>Tipo:</strong> {{ vaccine.type_vaccine }}</p>
+<p><strong>Fabricante:</strong> {{ vaccine.vaccine_manufacturer }}</p>
+<p><strong>Previne:</strong> {{ vaccine.prevents }}</p>
+
+<a href="{% url 'update_vaccine' vaccine.id %}">
+    <button style="
+        padding: 10px;
+        background-color: rgb(30, 51, 239);
+        color: white;
+        border: none;
+        border-radius: 5px;
+    ">
+        Editar Vacina
+    </button></a>
+{% endblock %}

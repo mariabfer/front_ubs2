@@ -1,20 +1,36 @@
 {% extends 'ubs/base.html' %}
 
-{% block titulo %}Lista de Focos De prioridade{% endblock %}
+{% block titulo %}Lista de Focos de Prioridade{% endblock %}
 
 {% block corpo %}
-    <h2>Lista de Foco de Prioridade</h2>
-    <ul>
-        {% if foco %}
-            {% for foco in foco %}
-                <li>{{ foco }}</li>
-            {% endfor %}
-        {% else %}
-            <p>Nenhum foco de prioridade encontrado.</p>
-        {% endif %}
-    </ul>
+<h2>Lista de Focos de Prioridade</h2>
 
-    {% else %}
-        <p>Nenhum foco de prioridade encontrado.</p>
-    {% endif %}
+{% if focos %}
+    <ul>
+        {% for foco in focos %}
+            <li>
+                <a href="{% url 'detail_foco' foco.id %}">
+                    {{ foco }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Nenhum foco de prioridade encontrado.</p>
+{% endif %}
+
+<hr>
+
+<a href="{% url 'create_foco' %}">
+    <button style="
+        padding: 10px;
+        background-color: rgb(30, 51, 239);
+        color: white;
+        border: none;
+        border-radius: 5px;
+    ">
+        Adicionar Foco
+    </button>
+</a>
+
 {% endblock %}

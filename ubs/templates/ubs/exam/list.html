@@ -3,18 +3,34 @@
 {% block titulo %}Lista de Exame{% endblock %}
 
 {% block corpo %}
-    <h2>Lista de Exame</h2>
-    <ul>
-        {% if exams %}
-            {% for exams in exams %}
-                <li>{{ exams }}</li>
-            {% endfor %}
-        {% else %}
-            <p>Nenhum exame encontrado.</p>
-        {% endif %}
-    </ul>
+<h2>Lista de Exame</h2>
 
-    {% else %}
-        <p>Nenhum exame encontrado.</p>
-    {% endif %}
+{% if exams %}
+    <ul>
+        {% for exam in exams %}
+            <li>
+                <a href="{% url 'detail_exam' exam.id %}">
+                    {{ exam }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Nenhum exame encontrado.</p>
+{% endif %}
+
+<hr>
+
+<a href="{% url 'create_exam' %}">
+    <button style="
+        padding: 10px;
+        background-color: rgb(30, 51, 239);
+        color: white;
+        border: none;
+        border-radius: 5px;
+    ">
+        Adicionar Exame
+    </button>
+</a>
+
 {% endblock %}

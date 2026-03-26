@@ -1,23 +1,38 @@
-<!-- {% extends 'ubs/base.html' %}
+{% extends 'ubs/base.html' %}
 
-{%block titulo %}Pagina inicial{% endblock %}
+{% block titulo %}Home{% endblock %}
 
 {% block corpo %}
-<h2>pagina 1</h2>  
-    
-{% if endereços %}
-    <ul>
-        {% for endereço in endereços %}
-            <li>
-                <a href="{% url 'endereco' endereço.id %}">
-                {{ endereço.street }}, {{ endereço.number }} - {{ endereço.city }}</a>
+    <h1>Admin UBS</h1>
 
-            </li>
-        {% endfor %}
+    <h3>Cadastros</h3>
+    <ul>
+        <li><a href="{% url 'list_pessoa' %}">Pessoas</a></li>
+        <li><a href="{% url 'list_cidadao' %}">Cidadãos</a></li>
+        <li><a href="{% url 'list_medico' %}">Médicos</a></li>
+        <li><a href="{% url 'list_enfermeiro' %}">Enfermeiros</a></li>
+        <li><a href="{% url 'list_ubs' %}">UBS</a></li>
     </ul>
 
-{% else %}
-    <p>Não há endereços cadastrados.</p>
-{% endif %}
+    <h3>Atendimento</h3>
+    <ul>
+        <li><a href="{% url 'list_appointment' %}">Consultas</a></li>
+        <li><a href="{% url 'list_agendamento' %}">Agendamentos</a></li>
+        <li><a href="{% url 'list_fila' %}">Fila</a></li>
+    </ul>
 
-{% endblock %} -->
+    <h3>Saúde</h3>
+    <ul>
+        <li><a href="{% url 'list_exam' %}">Exames</a></li>
+        <li><a href="{% url 'list_vaccine' %}">Vacinas</a></li>
+        <li><a href="{% url 'list_medication' %}">Medicamentos</a></li>
+    </ul>
+
+    <h3>Outros</h3>
+    <ul>
+        <li><a href="{% url 'list_email' %}">Emails</a></li>
+        <li><a href="{% url 'list_documento' %}">Documentos</a></li>
+        <li><a href="{% url 'list_dependente' %}">Dependentes</a></li>
+        <li><a href="{% url 'list_address' %}">Endereços</a></li>
+    </ul>
+{% endblock %}

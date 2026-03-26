@@ -16,6 +16,9 @@ def create_medication_appoi(request, appointment_id):
 
     return render(request, 'ubs/medication_appoi/create.html', {'form': form})
 
+def list_medication_appoi(request):
+    medications = MedicationAppoi.objects.all()
+    return render(request, 'ubs/medication_appoi/create/list.html', {'medications': medications})
 
 def delete_medication_appoi(request, id):
     obj = get_object_or_404(MedicationAppoi , id=id)

@@ -17,8 +17,8 @@ def list_dependente(request):
 
 
 def detail_dependente(request, id):
-    obj = get_object_or_404(Dependente, id=id)
-    return render(request, 'ubs/dependente/detail.html', {'obj': obj})
+    dependente = get_object_or_404(Dependente, id=id)
+    return render(request, 'ubs/dependente/detail.html', {'dependente': dependente})
 
 
 def update_dependente(request, id):

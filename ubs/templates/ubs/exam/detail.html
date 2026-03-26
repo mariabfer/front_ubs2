@@ -1,0 +1,16 @@
+{% extends 'ubs/base.html' %}
+
+{% block titulo %}Detalhes do Exame{% endblock %}
+
+{% block corpo %}
+<h2>Exame</h2>
+
+<p><strong>Consulta:</strong> {{ exam.appointment }}</p>
+<p><strong>Nome:</strong> {{ exam.name_exam }}</p>
+<p><strong>Tipo:</strong> {{ exam.get_type_display }}</p>
+<p><strong>Status:</strong> {{ exam.get_status_display }}</p>
+<p><strong>Resultado:</strong> {{ exam.result }}</p>
+<p><strong>Data:</strong> {{ exam.data }}</p>
+
+<a href="{% url 'update_exam' exam.id %}">Editar</a>
+{% endblock %}

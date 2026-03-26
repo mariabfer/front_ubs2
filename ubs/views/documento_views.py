@@ -17,8 +17,8 @@ def list_documento(request):
 
 
 def detail_documento(request, id):
-    obj = get_object_or_404(Documento, id=id)
-    return render(request, 'ubs/documento/detail.html', {'obj': obj})
+    documento = get_object_or_404(Documento, id=id)
+    return render(request, 'ubs/documento/detail.html', {'documento': documento})
 
 
 def update_documento(request, id):

@@ -1,0 +1,15 @@
+{% extends 'ubs/base.html' %}
+
+{% block titulo %}Medicamento UBS{% endblock %}
+
+{% block corpo %}
+<h2>Medicamento UBS</h2>
+
+<p><strong>Medicamento:</strong> {{ med_ubs.medication }}</p>
+<p><strong>UBS:</strong> {{ med_ubs.ubs }}</p>
+<p><strong>Lote:</strong> {{ med_ubs.num_lote }}</p>
+<p><strong>Quantidade:</strong> {{ med_ubs.available_quantity }}</p>
+<p><strong>Validade:</strong> {{ med_ubs.validity }}</p>
+
+<a href="{% url 'update_medication_ubs' med_ubs.id %}">Editar</a>
+{% endblock %}

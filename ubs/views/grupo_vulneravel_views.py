@@ -17,8 +17,8 @@ def list_grupo(request):
 
 
 def detail_grupo(request, id):
-    obj = get_object_or_404(GrupoVulneravel , id=id)
-    return render(request, 'ubs/grupo/detail.html', {'obj': obj})
+    grupo = get_object_or_404(GrupoVulneravel , id=id)
+    return render(request, 'ubs/grupo/detail.html', {'grupo': grupo})
 
 
 def update_grupo(request, id):

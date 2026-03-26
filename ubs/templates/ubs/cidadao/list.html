@@ -3,18 +3,34 @@
 {% block titulo %}Lista de Cidadão{% endblock %}
 
 {% block corpo %}
-    <h2>Lista de Cidadão</h2>
-    <ul>
-        {% if cidadaos %}
-            {% for cidadaos in cidadaos %}
-                <li>{{ cidadaos }}</li>
-            {% endfor %}
-        {% else %}
-            <p>Nenhum cidadão encontrado.</p>
-        {% endif %}
-    </ul>
+<h2>Lista de Cidadão</h2>
 
-    {% else %}
-        <p>Nenhum cidadão encontrado.</p>
-    {% endif %}
+{% if cidadaos %}
+    <ul>
+        {% for cidadao in cidadaos %}
+            <li>
+                <a href="{% url 'detail_cidadao' cidadao.id %}">
+                    {{ cidadao }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Nenhum cidadão encontrado.</p>
+{% endif %}
+
+<hr>
+
+<a href="{% url 'create_cidadao' %}">
+    <button style="
+        padding: 10px;
+        background-color: rgb(30, 51, 239);
+        color: white;
+        border: none;
+        border-radius: 5px;
+    ">
+        Adicionar Cidadão
+    </button>
+</a>
+
 {% endblock %}

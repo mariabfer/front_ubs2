@@ -1,20 +1,36 @@
 {% extends 'ubs/base.html' %}
 
-{% block titulo %}Lista de Grupo Vunerável{% endblock %}
+{% block titulo %}Lista de Grupos Vulneráveis{% endblock %}
 
 {% block corpo %}
-    <h2>Lista de Grupo Vunerável</h2>
-    <ul>
-        {% if grupos %}
-            {% for grupos in grupos %}
-                <li>{{ grupos }}</li>
-            {% endfor %}
-        {% else %}
-            <p>Nenhum grupo vunerável encontrado.</p>
-        {% endif %}
-    </ul>
+<h2>Lista de Grupos Vulneráveis</h2>
 
-    {% else %}
-        <p>Nenhum grupo vunerável encontrado.</p>
-    {% endif %}
+{% if grupos %}
+    <ul>
+        {% for grupo in grupos %}
+            <li>
+                <a href="{% url 'detail_grupo' grupo.id %}">
+                    {{ grupo }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Nenhum grupo vulnerável encontrado.</p>
+{% endif %}
+
+<hr>
+
+<a href="{% url 'create_grupo' %}">
+    <button style="
+        padding: 10px;
+        background-color: rgb(30, 51, 239);
+        color: white;
+        border: none;
+        border-radius: 5px;
+    ">
+        Adicionar Grupo
+    </button>
+</a>
+
 {% endblock %}

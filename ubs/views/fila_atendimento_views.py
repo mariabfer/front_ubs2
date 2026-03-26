@@ -17,8 +17,8 @@ def list_fila(request):
 
 
 def detail_fila(request, id):
-    obj = get_object_or_404(FilaAtendimento, id=id)
-    return render(request, 'ubs/fila/detail.html', {'obj': obj})
+    fila = get_object_or_404(FilaAtendimento, id=id)
+    return render(request, 'ubs/fila/detail.html', {'fila': fila})
 
 
 def update_fila(request, id):

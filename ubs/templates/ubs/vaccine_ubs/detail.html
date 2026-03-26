@@ -1,0 +1,17 @@
+{% extends 'ubs/base.html' %}
+
+{% block titulo %}Vacina UBS{% endblock %}
+
+{% block corpo %}
+<h2>Vacina UBS</h2>
+
+<p><strong>Vacina:</strong> {{ vacina_ubs.vaccine }}</p>
+<p><strong>UBS:</strong> {{ vacina_ubs.ubs }}</p>
+<p><strong>Prioridade:</strong> {{ vacina_ubs.get_priority_display }}</p>
+<p><strong>Dose:</strong> {{ vacina_ubs.dose }}</p>
+<p><strong>Lote:</strong> {{ vacina_ubs.lote }}</p>
+<p><strong>Quantidade:</strong> {{ vacina_ubs.available_quan }}</p>
+<p><strong>Validade:</strong> {{ vacina_ubs.validity }}</p>
+
+<a href="{% url 'update_vacina_ubs' vacina_ubs.id %}">Editar</a>
+{% endblock %}

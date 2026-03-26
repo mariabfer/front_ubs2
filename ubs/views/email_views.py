@@ -17,8 +17,8 @@ def list_email(request):
 
 
 def detail_email(request, id):
-    obj = get_object_or_404(Email, id=id)
-    return render(request, 'ubs/email/detail.html', {'obj': obj})
+    email = get_object_or_404(Email, id=id)
+    return render(request, 'ubs/email/detail.html', {'email': email})
 
 
 def update_email(request, id):

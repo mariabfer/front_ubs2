@@ -3,18 +3,34 @@
 {% block titulo %}Lista de Enfermeiro{% endblock %}
 
 {% block corpo %}
-    <h2>Lista de Enfermeiro</h2>
-    <ul>
-        {% if enfermeiros %}
-            {% for enfermeiros in enfermeiros %}
-                <li>{{ enfermeiros }}</li>
-            {% endfor %}
-        {% else %}
-            <p>Nenhum enfermeiro encontrado.</p>
-        {% endif %}
-    </ul>
+<h2>Lista de Enfermeiro</h2>
 
-    {% else %}
-        <p>Nenhum enfermeiro encontrado.</p>
-    {% endif %}
+{% if enfermeiros %}
+    <ul>
+        {% for enfermeiro in enfermeiros %}
+            <li>
+                <a href="{% url 'detail_enfermeiro' enfermeiro.id %}">
+                    {{ enfermeiro }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Nenhum enfermeiro encontrado.</p>
+{% endif %}
+
+<hr>
+
+<a href="{% url 'create_enfermeiro' %}">
+    <button style="
+        padding: 10px;
+        background-color: rgb(30, 51, 239);
+        color: white;
+        border: none;
+        border-radius: 5px;
+    ">
+        Adicionar Enfermeiro
+    </button>
+</a>
+
 {% endblock %}

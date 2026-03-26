@@ -1,20 +1,36 @@
 {% extends 'ubs/base.html' %}
 
-{% block titulo %}Lista de Dependente{% endblock %}
+{% block titulo %}Lista de Dependentes{% endblock %}
 
 {% block corpo %}
-    <h2>Lista de Dependente</h2>
-    <ul>
-        {% if dependentes %}
-            {% for dependentes in dependentes %}
-                <li>{{ dependentes }}</li>
-            {% endfor %}
-        {% else %}
-            <p>Nenhum dependente encontrado.</p>
-        {% endif %}
-    </ul>
+<h2>Lista de Dependentes</h2>
 
-    {% else %}
-        <p>Nenhum dependente encontrado.</p>
-    {% endif %}
+{% if dependentes %}
+    <ul>
+        {% for dependente in dependentes %}
+            <li>
+                <a href="{% url 'detail_dependente' dependente.id %}">
+                    {{ dependente }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Nenhum dependente encontrado.</p>
+{% endif %}
+
+<hr>
+
+<a href="{% url 'create_dependente' %}">
+    <button style="
+        padding: 10px;
+        background-color: rgb(30, 51, 239);
+        color: white;
+        border: none;
+        border-radius: 5px;
+    ">
+        Adicionar Dependente
+    </button>
+</a>
+
 {% endblock %}

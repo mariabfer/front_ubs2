@@ -1,0 +1,12 @@
+{% extends 'ubs/base.html' %}
+
+{% block titulo %}Medicamento{% endblock %}
+
+{% block corpo %}
+<h2>Medicamento</h2>
+
+<p><strong>Nome:</strong> {{ medication.name_medication }}</p>
+<p><strong>Categoria:</strong> {{ medication.category_med }}</p>
+
+<a href="{% url 'update_medication' medication.id %}">Editar</a>
+{% endblock %}

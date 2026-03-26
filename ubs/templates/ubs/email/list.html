@@ -3,18 +3,35 @@
 {% block titulo %}Lista de Email{% endblock %}
 
 {% block corpo %}
-    <h2>Lista de Email</h2>
-    <ul>
-        {% if emails %}
-            {% for emails in emails %}
-                <li>{{ emails }}</li>
-            {% endfor %}
-        {% else %}
-            <p>Nenhum Email encontrado.</p>
-        {% endif %}
-    </ul>
+<h2>Lista de Email</h2>
 
-    {% else %}
-        <p>Nenhum Email encontrado.</p>
-    {% endif %}
+{% if emails %}
+    <ul>
+        {% for email in emails %}
+            <li>
+                <a href="{% url 'detail_email' email.id %}">
+                    {{ email }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Nenhum email encontrado.</p>
+{% endif %}
+
+<hr>
+
+<a href="{% url 'create_email' %}">
+    <button style="
+        padding: 10px;
+        background-color: rgb(30, 51, 239);
+        color: white;
+        border: none;
+        border-radius: 5px;
+    ">
+        Adicionar Email
+    </button>
+</a>
+
 {% endblock %}
+

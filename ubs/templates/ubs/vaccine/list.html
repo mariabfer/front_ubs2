@@ -1,20 +1,36 @@
 {% extends 'ubs/base.html' %}
 
-{% block titulo %}Lista de Vacina{% endblock %}
+{% block titulo %}Lista de Vacinas{% endblock %}
 
 {% block corpo %}
-    <h2>Lista de Vacina</h2>
-    <ul>
-        {% if vaccines %}
-            {% for vaccines in vaccines %}
-                <li>{{ vaccines }}</li>
-            {% endfor %}
-        {% else %}
-            <p>Nenhum vacina encontrado.</p>
-        {% endif %}
-    </ul>
+<h2>Lista de Vacinas</h2>
 
-    {% else %}
-        <p>Nenhum vacina encontrado.</p>
-    {% endif %}
+{% if vaccines %}
+    <ul>
+        {% for vaccine in vaccines %}
+            <li>
+                <a href="{% url 'detail_vaccine' vaccine.id %}">
+                    {{ vaccine }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Nenhuma vacina encontrada.</p>
+{% endif %}
+
+<hr>
+
+<a href="{% url 'create_vaccine' %}">
+    <button style="
+        padding: 10px;
+        background-color: rgb(30, 51, 239);
+        color: white;
+        border: none;
+        border-radius: 5px;
+    ">
+        Adicionar Vacina
+    </button>
+</a>
+
 {% endblock %}

@@ -3,18 +3,34 @@
 {% block titulo %}Lista de Fila{% endblock %}
 
 {% block corpo %}
-    <h2>Lista de Fila</h2>
-    <ul>
-        {% if filas %}
-            {% for filas in filas %}
-                <li>{{ filas }}</li>
-            {% endfor %}
-        {% else %}
-            <p>Nenhum fila encontrado.</p>
-        {% endif %}
-    </ul>
+<h2>Lista de Fila</h2>
 
-    {% else %}
-        <p>Nenhum fila encontrado.</p>
-    {% endif %}
+{% if filas %}
+    <ul>
+        {% for fila in filas %}
+            <li>
+                <a href="{% url 'detail_fila' fila.id %}">
+                    {{ fila }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Nenhuma fila encontrada.</p>
+{% endif %}
+
+<hr>
+
+<a href="{% url 'create_fila' %}">
+    <button style="
+        padding: 10px;
+        background-color: rgb(30, 51, 239);
+        color: white;
+        border: none;
+        border-radius: 5px;
+    ">
+        Adicionar Fila
+    </button>
+</a>
+
 {% endblock %}

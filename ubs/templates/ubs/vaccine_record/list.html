@@ -3,18 +3,34 @@
 {% block titulo %}Lista dos Registros de Vacina{% endblock %}
 
 {% block corpo %}
-    <h2>Lista dos Registros de Vacina</h2>
-    <ul>
-        {% if reg_vacina %}
-            {% for reg_vacina in reg_vacina %}
-                <li>{{ reg_vacina }}</li>
-            {% endfor %}
-        {% else %}
-            <p>Nenhum registro encontrado.</p>
-        {% endif %}
-    </ul>
+<h2>Lista dos Registros de Vacina</h2>
 
-    {% else %}
-        <p>Nenhum registro encontrado.</p>
-    {% endif %}
+{% if registros %}
+    <ul>
+        {% for registro in registros %}
+            <li>
+                <a href="{% url 'detail_registro' registro.id %}">
+                    {{ registro }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Nenhum registro encontrado.</p>
+{% endif %}
+
+<hr>
+
+<a href="{% url 'create_registro' %}">
+    <button style="
+        padding: 10px;
+        background-color: rgb(30, 51, 239);
+        color: white;
+        border: none;
+        border-radius: 5px;
+    ">
+        Adicionar Registro
+    </button>
+</a>
+
 {% endblock %}

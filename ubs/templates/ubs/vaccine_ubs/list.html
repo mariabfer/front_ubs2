@@ -1,20 +1,36 @@
 {% extends 'ubs/base.html' %}
 
-{% block titulo %}Adicionar Vacina-Ubs{% endblock %}
+{% block titulo %}Lista de Vacinas UBS{% endblock %}
 
 {% block corpo %}
-    <h2>Lista de Vacina-Ubs</h2>
-    <ul>
-        {% if items %}
-            {% for items in items %}
-                <li>{{ items }}</li>
-            {% endfor %}
-        {% else %}
-            <p>Nenhum vacina-Ubs encontrado.</p>
-        {% endif %}
-    </ul>
+<h2>Lista de Vacinas UBS</h2>
 
-    {% else %}
-        <p>Nenhum vacina-Ubs encontrado.</p>
-    {% endif %}
+{% if items %}
+    <ul>
+        {% for item in items %}
+            <li>
+                <a href="{% url 'detail_item' item.id %}">
+                    {{ item }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Nenhuma vacina UBS encontrada.</p>
+{% endif %}
+
+<hr>
+
+<a href="{% url 'create_item' %}">
+    <button style="
+        padding: 10px;
+        background-color: rgb(30, 51, 239);
+        color: white;
+        border: none;
+        border-radius: 5px;
+    ">
+        Adicionar Vacina UBS
+    </button>
+</a>
+
 {% endblock %}

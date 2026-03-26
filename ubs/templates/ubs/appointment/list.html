@@ -3,18 +3,34 @@
 {% block titulo %}Lista de Consulta{% endblock %}
 
 {% block corpo %}
-    <h2>Lista de Consulta</h2>
-    <ul>
-        {% if appointments %}
-            {% for appointments in appointments %}
-                <li>{{ appointments }}</li>
-            {% endfor %}
-        {% else %}
-            <p>Nenhum consulta encontrado.</p>
-        {% endif %}
-    </ul>
+<h2>Lista de Consulta</h2>
 
-    {% else %}
-        <p>Nenhum consulta encontrado.</p>
-    {% endif %}
+{% if appointments %}
+    <ul>
+        {% for appointment in appointments %}
+            <li>
+                <a href="{% url 'detail_appointment' appointment.id %}">
+                    {{ appointment }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Nenhuma consulta encontrada.</p>
+{% endif %}
+
+<hr>
+
+<a href="{% url 'create_appointment' %}">
+    <button style="
+        padding: 10px;
+        background-color: rgb(30, 51, 239);
+        color: white;
+        border: none;
+        border-radius: 5px;
+    ">
+        Adicionar Consulta
+    </button>
+</a>
+
 {% endblock %}

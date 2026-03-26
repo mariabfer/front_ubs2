@@ -1,0 +1,16 @@
+{% extends 'ubs/base.html' %}
+
+{% block titulo %}Detalhes do Endereço{% endblock %}
+
+{% block corpo %}
+    <h2>Endereço</h2>
+
+    <p><strong>CEP:</strong> {{ address.cep }}</p>
+    <p><strong>Estado:</strong> {{ address.state }}</p>
+    <p><strong>Cidade:</strong> {{ address.city }}</p>
+    <p><strong>Bairro:</strong> {{ address.neigh }}</p>
+    <p><strong>Rua:</strong> {{ address.street }}</p>
+    <p><strong>Número:</strong> {{ address.number }}</p>
+
+<a href="{% url 'update_address' address.id %}">Editar</a>
+{% endblock %}

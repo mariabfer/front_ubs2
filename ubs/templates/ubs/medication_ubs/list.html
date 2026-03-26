@@ -1,20 +1,36 @@
 {% extends 'ubs/base.html' %}
 
-{% block titulo %}Lista de Medicamento-Ubs{% endblock %}
+{% block titulo %}Lista de Medicamentos UBS{% endblock %}
 
 {% block corpo %}
-    <h2>Lista de Medicamento-Ubs</h2>
-    <ul>
-        {% if items %}
-            {% for items in items %}
-                <li>{{ items }}</li>
-            {% endfor %}
-        {% else %}
-            <p>Nenhum Medicamento-Ubs encontrado.</p>
-        {% endif %}
-    </ul>
+<h2>Lista de Medicamentos UBS</h2>
 
-    {% else %}
-        <p>Nenhum Medicamento-Ubs encontrado.</p>
-    {% endif %}
+{% if items %}
+    <ul>
+        {% for item in items %}
+            <li>
+                <a href="{% url 'detail_item' item.id %}">
+                    {{ item }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Nenhum medicamento encontrado.</p>
+{% endif %}
+
+<hr>
+
+<a href="{% url 'create_item' %}">
+    <button style="
+        padding: 10px;
+        background-color: rgb(30, 51, 239);
+        color: white;
+        border: none;
+        border-radius: 5px;
+    ">
+        Adicionar Medicamento
+    </button>
+</a>
+
 {% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'ubs/base.html' %}
+
+{% block titulo %}Detalhes da Anamnese{% endblock %}
+
+{% block corpo %}
+<h2>Anamnese</h2>
+
+<p><strong>Cidadão:</strong> {{ anamnese.cidadao }}</p>
+<p><strong>Data:</strong> {{ anamnese.data_anamnese }}</p>
+<p><strong>Peso:</strong> {{ anamnese.peso }}</p>
+<p><strong>Altura:</strong> {{ anamnese.altura }}</p>
+<p><strong>Pressão:</strong> {{ anamnese.pressao_arterial }}</p>
+
+<a href="{% url 'update_anamnese' anamnese.id %}">Editar</a>
+{% endblock %}

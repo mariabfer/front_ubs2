@@ -17,8 +17,8 @@ def list_vaccine(request):
 
 
 def detail_vaccine(request, id):
-    obj = get_object_or_404(Vaccine, id=id)
-    return render(request, 'ubs/vaccine/detail.html', {'obj': obj})
+    vaccine = get_object_or_404(Vaccine, id=id)
+    return render(request, 'ubs/vaccine/detail.html', {'vaccine': vaccine})
 
 
 def update_vaccine(request, id):

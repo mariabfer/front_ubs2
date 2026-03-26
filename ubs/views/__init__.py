@@ -2,10 +2,10 @@
 from .address_views import create_address, list_address, update_address, delete_address
 
 # AGENDAMENTO
-from .agendamento_views import create_agendamento, list_agendamento, update_agendamento, delete_agendamento
+from .agendamento_views import create_agendamento, list_agendamento, update_agendamento
 
 # ANAMNESE
-from .anamnese_views import create_anamnese, list_anamnese, update_anamnese, delete_anamnese
+from .anamnese_views import create_anamnese, list_anamnese, update_anamnese
 
 # APPOINTMENT
 from .appointment_views import create_appointment, list_appointment, detail_appointment, update_appointment, delete_appointment

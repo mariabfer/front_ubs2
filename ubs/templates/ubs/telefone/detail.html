@@ -1,0 +1,14 @@
+{% extends 'ubs/base.html' %}
+
+{% block titulo %}Telefone{% endblock %}
+
+{% block corpo %}
+<h2>Telefone</h2>
+
+<p><strong>Número:</strong> {{ telefone.numero }}</p>
+<p><strong>Tipo:</strong> {{ telefone.get_tipo_display }}</p>
+<p><strong>Pessoa:</strong> {{ telefone.pessoa }}</p>
+<p><strong>UBS:</strong> {{ telefone.ubs }}</p>
+
+<a href="{% url 'update_telefone' telefone.id %}">Editar</a>
+{% endblock %}

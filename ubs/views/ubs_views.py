@@ -13,12 +13,12 @@ def create_ubs(request):
 
 def list_ubs(request):
     data = Ubs.objects.select_related('address').all()
-    return render(request, 'ubs/ubs/list.html', {'ubs_list': data})
+    return render(request, 'ubs/ubs/list.html', {'ubs': data})
 
 
 def detail_ubs(request, id):
-    obj = get_object_or_404(Ubs, id=id)
-    return render(request, 'ubs/ubs/detail.html', {'obj': obj})
+    ubs = get_object_or_404(Ubs, id=id)
+    return render(request, 'ubs/ubs/detail.html', {'ubs': ubs})
 
 
 def update_ubs(request, id):

@@ -1,0 +1,16 @@
+{% extends 'ubs/base.html' %}
+
+{% block titulo %}Detalhes da Fila{% endblock %}
+
+{% block corpo %}
+<h2>Fila de Atendimento</h2>
+
+<p><strong>UBS:</strong> {{ fila.ubs }}</p>
+<p><strong>Tipo:</strong> {{ fila.get_tipo_atendimento_display }}</p>
+<p><strong>Data:</strong> {{ fila.data_fila }}</p>
+<p><strong>Capacidade:</strong> {{ fila.quantidade_maxima }}</p>
+<p><strong>Médico:</strong> {{ fila.medico }}</p>
+<p><strong>Vacina:</strong> {{ fila.vacina }}</p>
+
+<a href="{% url 'update_fila' fila.id %}">Editar</a>
+{% endblock %}

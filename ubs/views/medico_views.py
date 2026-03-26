@@ -12,13 +12,13 @@ def create_medico(request):
 
 
 def list_medico(request):
-    data = Medico.objects.select_related('pessoa', 'ubs').all()
+    data = Medico.objects.select_related( 'ubs').all()
     return render(request, 'ubs/medico/list.html', {'medicos': data})
 
 
 def detail_medico(request, id):
-    obj = get_object_or_404(Medico, id=id)
-    return render(request, 'ubs/medico/detail.html', {'obj': obj})
+    medico = get_object_or_404(Medico, id=id)
+    return render(request, 'ubs/medico/detail.html', {'medico': medico})
 
 
 def update_medico(request, id):

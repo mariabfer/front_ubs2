@@ -29,11 +29,6 @@ def update_agendamento(request, id):
     return render(request, 'ubs/agendamento/update.html', {'form': form})
 
 
-def delete_agendamento(request, id):
-    agendamento = get_object_or_404(Agendamento, id=id)
-
-    if request.method == "POST":
-        agendamento.delete()
-        return redirect('list_agendamento')
-
-    return render(request, 'ubs/agendamento/delete.html', {'agendamento': agendamento})
+def detail_agendamento(request, id):
+    agendamentos = get_object_or_404(Agendamento, id=id)
+    return render(request, 'ubs/agendamento/detail.html', {'agendamento': agendamentos})

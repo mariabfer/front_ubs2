@@ -12,13 +12,13 @@ def create_enfermeiro(request):
 
 
 def list_enfermeiro(request):
-    enfermeiros = Enfermeiro.objects.select_related('pessoa', 'ubs').all()
+    enfermeiros = Enfermeiro.objects.select_related( 'ubs').all()
     return render(request, 'ubs/enfermeiro/list.html', {'enfermeiros': enfermeiros})
 
 
 def detail_enfermeiro(request, id):
-    obj = get_object_or_404(Enfermeiro, id=id)
-    return render(request, 'ubs/enfermeiro/detail.html', {'obj': obj})
+    enfermeiro = get_object_or_404(Enfermeiro, id=id)
+    return render(request, 'ubs/enfermeiro/detail.html', {'enfermeiro': enfermeiro})
 
 
 def update_enfermeiro(request, id):

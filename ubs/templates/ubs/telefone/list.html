@@ -1,20 +1,36 @@
 {% extends 'ubs/base.html' %}
 
-{% block titulo %}Lista de Telefones {% endblock %}
+{% block titulo %}Lista de Telefones{% endblock %}
 
 {% block corpo %}
-    <h2>Lista de Telefones</h2>
-    <ul>
-        {% if telefones %}
-            {% for telefones in telefones %}
-                <li>{{ telefones }}</li>
-            {% endfor %}
-        {% else %}
-            <p>Nenhum telefone encontrado.</p>
-        {% endif %}
-    </ul>
+<h2>Lista de Telefones</h2>
 
-    {% else %}
-        <p>Nenhum telefone encontrado.</p>
-    {% endif %}
+{% if telefones %}
+    <ul>
+        {% for telefone in telefones %}
+            <li>
+                <a href="{% url 'detail_telefone' telefone.id %}">
+                    {{ telefone }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Nenhum telefone encontrado.</p>
+{% endif %}
+
+<hr>
+
+<a href="{% url 'create_telefone' %}">
+    <button style="
+        padding: 10px;
+        background-color: rgb(30, 51, 239);
+        color: white;
+        border: none;
+        border-radius: 5px;
+    ">
+        Adicionar Telefone
+    </button>
+</a>
+
 {% endblock %}

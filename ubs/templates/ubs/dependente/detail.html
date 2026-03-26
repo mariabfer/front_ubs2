@@ -1,0 +1,13 @@
+{% extends 'ubs/base.html' %}
+
+{% block titulo %}Detalhes do Dependente{% endblock %}
+
+{% block corpo %}
+<h2>Dependente</h2>
+
+<p><strong>Responsável:</strong> {{ dependente.responsavel }}</p>
+<p><strong>Dependente:</strong> {{ dependente.dependente }}</p>
+<p><strong>Parentesco:</strong> {{ dependente.parentesco }}</p>
+
+<a href="{% url 'update_dependente' dependente.id %}">Editar</a>
+{% endblock %}

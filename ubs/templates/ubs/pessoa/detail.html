@@ -1,0 +1,14 @@
+{% extends 'ubs/base.html' %}
+
+{% block titulo %}Detalhes da Pessoa{% endblock %}
+
+{% block corpo %}
+<h2>Pessoa</h2>
+
+<p><strong>Nome:</strong> {{ obj.nome_pessoa }}</p>
+<p><strong>Estado Civil:</strong> {{ obj.get_estado_civil_display }}</p>
+<p><strong>UBS:</strong> {{ obj.ubs }}</p>
+
+<a href="{% url 'update_pessoa' obj.id %}">Editar</a> |
+
+{% endblock %}

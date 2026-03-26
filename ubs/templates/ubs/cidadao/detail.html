@@ -1,0 +1,35 @@
+{% extends 'ubs/base.html' %}
+
+{% block titulo %}Detalhes do Cidadão{% endblock %}
+
+{% block corpo %}
+    <h2>Detalhes do Cidadão</h2>
+
+    <p><strong>Nome:</strong> {{ cidadao.nome_pessoa }}</p>
+    <p><strong>SUS:</strong> {{ cidadao.num_sus }}</p>
+    <p><strong>Data de Nascimento:</strong> {{ cidadao.data_nascimento }}</p>
+    <p><strong>Gênero:</strong> {{ cidadao.get_genero_display }}</p>
+    <p><strong>Naturalidade:</strong> {{ cidadao.naturalidade }}</p>
+    <p><strong>Ocupação:</strong> {{ cidadao.ocupacao }}</p>
+
+    <hr>
+
+    <h3>Endereço</h3>
+    <p>{{ cidadao.address }}</p>
+
+    <hr>
+
+    <h3>Grupos Vulneráveis</h3>
+    <ul>
+        {% for grupo in cidadao.grupos.all %}
+            <li>{{ grupo }}</li>
+        {% empty %}
+            <li>Nenhum grupo cadastrado</li>
+        {% endfor %}
+    </ul>
+
+    <hr>
+
+    <a href="{% url 'update_cidadao' cidadao.id %}">Editar</a>
+    
+{% endblock %}

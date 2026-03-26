@@ -1,0 +1,14 @@
+{% extends 'ubs/base.html' %}
+
+{% block titulo %}Detalhes do Email{% endblock %}
+
+{% block corpo %}
+<h2>Email</h2>
+
+<p><strong>Email:</strong> {{ email.email }}</p>
+<p><strong>Tipo:</strong> {{ email.get_tipo_display }}</p>
+<p><strong>Pessoa:</strong> {{ email.pessoa }}</p>
+<p><strong>UBS:</strong> {{ email.ubs }}</p>
+
+<a href="{% url 'update_email' email.id %}">Editar</a>
+{% endblock %}

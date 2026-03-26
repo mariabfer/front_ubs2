@@ -28,6 +28,10 @@ def update_address(request, id):
 
     return render(request, 'ubs/address/update.html', {'form': form})
 
+def detail_address(request, id):
+    obj = get_object_or_404(Address, id=id)
+    return render(request, 'ubs/address/detail.html', {'address': obj})
+
 
 def delete_address(request, id):
     address = get_object_or_404(Address, id=id)
