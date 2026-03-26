@@ -12,5 +12,9 @@
 <p><strong>Hábitos:</strong> {{ appointment.life_habits }}</p>
 <p><strong>Agendamento:</strong> {{ appointment.scheduling }}</p>
 
-<a href="{% url 'update_appointment' appointment.id %}">Editar</a>
+<a href="{% url 'update_appointment' appointment.id %}">
+    <button style="padding: 10px; background-color: rgb(30, 51, 239); color: white; border: none; border-radius: 5px;">
+            Editar Consulta
+    </button>
+</a>
 {% endblock %}

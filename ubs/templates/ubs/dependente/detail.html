@@ -9,5 +9,15 @@
 <p><strong>Dependente:</strong> {{ dependente.dependente }}</p>
 <p><strong>Parentesco:</strong> {{ dependente.parentesco }}</p>
 
-<a href="{% url 'update_dependente' dependente.id %}">Editar</a>
+<a href="{% url 'update_dependente' dependente.id %}">
+    <button style="
+        padding: 10px;
+        background-color: rgb(30, 51, 239);
+        color: white;
+        border: none;
+        border-radius: 5px;
+        ">
+            Editar
+        </button>
+</a>
 {% endblock %}

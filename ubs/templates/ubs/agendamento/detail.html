@@ -12,5 +12,9 @@
 <p><strong>Status:</strong> {{ agendamento.get_status_display }}</p>
 <p><strong>Prioridade:</strong> {{ agendamento.prioridade_calculada }}</p>
 
-<a href="{% url 'update_agendamento' agendamento.id %}">Editar</a>
+<a href="{% url 'update_agendamento' agendamento.id %}">
+    <button style="padding: 10px; background-color: rgb(30, 51, 239); color: white; border: none; border-radius: 5px;">
+        Editar Agendamento
+    </button>
+</a>
 {% endblock %}

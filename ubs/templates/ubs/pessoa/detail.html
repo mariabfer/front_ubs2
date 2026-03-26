@@ -9,6 +9,16 @@
 <p><strong>Estado Civil:</strong> {{ obj.get_estado_civil_display }}</p>
 <p><strong>UBS:</strong> {{ obj.ubs }}</p>
 
-<a href="{% url 'update_pessoa' obj.id %}">Editar</a> |
+<a href="{% url 'update_pessoa' obj.id %}">
+     <button style="
+        padding: 10px;
+        background-color: rgb(30, 51, 239);
+        color: white;
+        border: none;
+        border-radius: 5px;
+        ">
+            Editar
+        </button>
+</a> |
 
 {% endblock %}

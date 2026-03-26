@@ -10,5 +10,15 @@
 <p><strong>Pessoa:</strong> {{ email.pessoa }}</p>
 <p><strong>UBS:</strong> {{ email.ubs }}</p>
 
-<a href="{% url 'update_email' email.id %}">Editar</a>
+<a href="{% url 'update_email' email.id %}">
+     <button style="
+        padding: 10px;
+        background-color: rgb(30, 51, 239);
+        color: white;
+        border: none;
+        border-radius: 5px;
+        ">
+            Editar
+        </button>
+</a>
 {% endblock %}

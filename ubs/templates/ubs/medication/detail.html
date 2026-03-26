@@ -8,5 +8,15 @@
 <p><strong>Nome:</strong> {{ medication.name_medication }}</p>
 <p><strong>Categoria:</strong> {{ medication.category_med }}</p>
 
-<a href="{% url 'update_medication' medication.id %}">Editar</a>
+<a href="{% url 'update_medication' medication.id %}">
+     <button style="
+        padding: 10px;
+        background-color: rgb(30, 51, 239);
+        color: white;
+        border: none;
+        border-radius: 5px;
+        ">
+            Editar
+        </button>
+</a>
 {% endblock %}

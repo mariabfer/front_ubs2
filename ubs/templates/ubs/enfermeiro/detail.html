@@ -8,5 +8,13 @@
 <p><strong>Nome:</strong> {{ enfermeiro.nome_pessoa }}</p>
 <p><strong>CIP:</strong> {{ enfermeiro.cip }}</p>
 
-<a href="{% url 'update_enfermeiro' enfermeiro.id %}">Editar</a>
+<a href="{% url 'update_enfermeiro' enfermeiro.id %}"> <button style="
+        padding: 10px;
+        background-color: rgb(30, 51, 239);
+        color: white;
+        border: none;
+        border-radius: 5px;
+        ">
+            Editar
+        </button></a>
 {% endblock %}

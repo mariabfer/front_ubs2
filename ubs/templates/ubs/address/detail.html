@@ -12,5 +12,9 @@
     <p><strong>Rua:</strong> {{ address.street }}</p>
     <p><strong>Número:</strong> {{ address.number }}</p>
 
-<a href="{% url 'update_address' address.id %}">Editar</a>
+<a href="{% url 'update_address' address.id %}">
+    <button style="padding: 10px; background-color: rgb(30, 51, 239); color: white; border: none; border-radius: 5px;">
+            Editar Endereço
+    </button>
+</a>
 {% endblock %}

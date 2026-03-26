@@ -11,5 +11,15 @@
 <p><strong>Altura:</strong> {{ anamnese.altura }}</p>
 <p><strong>Pressão:</strong> {{ anamnese.pressao_arterial }}</p>
 
-<a href="{% url 'update_anamnese' anamnese.id %}">Editar</a>
+<a href="{% url 'update_anamnese' anamnese.id %}">
+    <button style="
+        padding: 10px;
+        background-color: rgb(30, 51, 239);
+        color: white;
+        border: none;
+        border-radius: 5px;
+    ">
+        Editar Anamnese
+        </button>
+    </a>
 {% endblock %}

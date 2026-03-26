@@ -9,5 +9,14 @@
 <p><strong>Peso:</strong> {{ grupo.peso_prioridade }}</p>
 <p><strong>Descrição:</strong> {{ grupo.descricao }}</p>
 
-<a href="{% url 'update_grupo' grupo.id %}">Editar</a>
+<a href="{% url 'update_grupo' grupo.id %}"> <button style="
+        padding: 10px;
+        background-color: rgb(30, 51, 239);
+        color: white;
+        border: none;
+        border-radius: 5px;
+        ">
+            Editar
+        </button>
+    </a>
 {% endblock %}

@@ -11,5 +11,15 @@
 <p><strong>Quantidade:</strong> {{ med_ubs.available_quantity }}</p>
 <p><strong>Validade:</strong> {{ med_ubs.validity }}</p>
 
-<a href="{% url 'update_medication_ubs' med_ubs.id %}">Editar</a>
+<a href="{% url 'update_medication_ubs' med_ubs.id %}">
+     <button style="
+        padding: 10px;
+        background-color: rgb(30, 51, 239);
+        color: white;
+        border: none;
+        border-radius: 5px;
+        ">
+            Editar
+        </button>
+</a>
 {% endblock %}

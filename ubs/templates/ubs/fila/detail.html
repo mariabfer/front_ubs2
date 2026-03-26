@@ -12,5 +12,14 @@
 <p><strong>Médico:</strong> {{ fila.medico }}</p>
 <p><strong>Vacina:</strong> {{ fila.vacina }}</p>
 
-<a href="{% url 'update_fila' fila.id %}">Editar</a>
+    <a href="{% url 'update_fila' fila.id %}"> <button style="
+            padding: 10px;
+            background-color: rgb(30, 51, 239);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            ">
+                Editar
+            </button>
+    </a>
 {% endblock %}
