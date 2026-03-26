@@ -29,10 +29,3 @@ def update_vaccine(request, id):
         return redirect('list_vaccine')
     return render(request, 'ubs/vaccine/update.html', {'form': form})
 
-
-def delete_vaccine(request, id):
-    obj = get_object_or_404(Vaccine, id=id)
-    if request.method == "POST":
-        obj.delete()
-        return redirect('list_vaccine')
-    return render(request, 'ubs/vaccine/delete.html', {'obj': obj})

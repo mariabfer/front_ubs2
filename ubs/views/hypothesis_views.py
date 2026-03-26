@@ -17,10 +17,4 @@ def create_hypothesis(request, appointment_id):
     return render(request, 'ubs/hypothesis/create.html', {'form': form})
 
 
-def delete_hypothesis(request, id):
-    obj = get_object_or_404(Hypothesis, id=id)
-    appointment_id = obj.appointment.id
-    
-    obj.delete()
-    
-    return redirect('detail_appointment', id=appointment_id)
+

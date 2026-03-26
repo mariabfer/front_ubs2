@@ -30,9 +30,3 @@ def update_medico(request, id):
     return render(request, 'ubs/medico/update.html', {'form': form})
 
 
-def delete_medico(request, id):
-    obj = get_object_or_404(Medico, id=id)
-    if request.method == "POST":
-        obj.delete()
-        return redirect('list_medico')
-    return render(request, 'ubs/medico/delete.html', {'obj': obj})

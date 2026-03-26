@@ -20,10 +20,3 @@ def list_medication_appoi(request):
     medications = MedicationAppoi.objects.all()
     return render(request, 'ubs/medication_appoi/create/list.html', {'medications': medications})
 
-def delete_medication_appoi(request, id):
-    obj = get_object_or_404(MedicationAppoi , id=id)
-    appointment_id = obj.appointment.id
-    
-    obj.delete()
-    
-    return redirect('detail_appointment', id=appointment_id)

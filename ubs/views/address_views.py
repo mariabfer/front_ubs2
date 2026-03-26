@@ -33,11 +33,3 @@ def detail_address(request, id):
     return render(request, 'ubs/address/detail.html', {'address': obj})
 
 
-def delete_address(request, id):
-    address = get_object_or_404(Address, id=id)
-
-    if request.method == "POST":
-        address.delete()
-        return redirect('list_address')
-
-    return render(request, 'ubs/address/delete.html', {'address': address})

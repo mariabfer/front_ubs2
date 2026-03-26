@@ -30,9 +30,3 @@ def update_medication_ubs(request, id):
     return render(request, 'ubs/medication_ubs/update.html', {'form': form})
 
 
-def delete_medication_ubs(request, id):
-    obj = get_object_or_404(MedicationUbs , id=id)
-    if request.method == "POST":
-        obj.delete()
-        return redirect('list_medication_ubs')
-    return render(request, 'ubs/medication_ubs/delete.html', {'obj': obj})

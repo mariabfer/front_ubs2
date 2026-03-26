@@ -30,9 +30,3 @@ def update_cidadao(request, id):
     return render(request, 'ubs/cidadao/update.html', {'form': form})
 
 
-def delete_cidadao(request, id):
-    obj = get_object_or_404(Cidadao, id=id)
-    if request.method == "POST":
-        obj.delete()
-        return redirect('list_cidadao')
-    return render(request, 'ubs/cidadao/delete.html', {'obj': obj})

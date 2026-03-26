@@ -12,7 +12,7 @@ def create_grupo(request):
 
 
 def list_grupo(request):
-    data = GrupoVulneravel .objects.all()
+    data = GrupoVulneravel.objects.all()
     return render(request, 'ubs/grupo/list.html', {'grupos': data})
 
 
@@ -29,10 +29,3 @@ def update_grupo(request, id):
         return redirect('list_grupo')
     return render(request, 'ubs/grupo/update.html', {'form': form})
 
-
-def delete_grupo(request, id):
-    obj = get_object_or_404(GrupoVulneravel , id=id)
-    if request.method == "POST":
-        obj.delete()
-        return redirect('list_grupo')
-    return render(request, 'ubs/grupo/delete.html', {'obj': obj})

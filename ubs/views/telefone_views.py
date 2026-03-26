@@ -30,9 +30,3 @@ def update_telefone(request, id):
     return render(request, 'ubs/telefone/update.html', {'form': form})
 
 
-def delete_telefone(request, id):
-    obj = get_object_or_404(Telefone, id=id)
-    if request.method == "POST":
-        obj.delete()
-        return redirect('list_telefone')
-    return render(request, 'ubs/telefone/delete.html', {'obj': obj})

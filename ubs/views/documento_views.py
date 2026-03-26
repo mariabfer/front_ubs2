@@ -30,9 +30,3 @@ def update_documento(request, id):
     return render(request, 'ubs/documento/update.html', {'form': form})
 
 
-def delete_documento(request, id):
-    obj = get_object_or_404(Documento, id=id)
-    if request.method == "POST":
-        obj.delete()
-        return redirect('list_documento')
-    return render(request, 'ubs/documento/delete.html', {'obj': obj})

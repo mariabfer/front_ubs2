@@ -29,10 +29,3 @@ def update_ubs(request, id):
         return redirect('list_ubs')
     return render(request, 'ubs/ubs/update.html', {'form': form})
 
-
-def delete_ubs(request, id):
-    obj = get_object_or_404(Ubs, id=id)
-    if request.method == "POST":
-        obj.delete()
-        return redirect('list_ubs')
-    return render(request, 'ubs/ubs/delete.html', {'obj': obj})

@@ -29,10 +29,3 @@ def update_enfermeiro(request, id):
         return redirect('list_enfermeiro')
     return render(request, 'ubs/enfermeiro/update.html', {'form': form})
 
-
-def delete_enfermeiro(request, id):
-    obj = get_object_or_404(Enfermeiro, id=id)
-    if request.method == "POST":
-        obj.delete()
-        return redirect('list_enfermeiro')
-    return render(request, 'ubs/enfermeiro/delete.html', {'obj': obj})

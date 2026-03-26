@@ -29,10 +29,3 @@ def update_pessoa(request, id):
         return redirect('list_pessoa')
     return render(request, 'ubs/pessoa/update.html', {'form': form})
 
-
-def delete_pessoa(request, id):
-    obj = get_object_or_404(Pessoa, id=id)
-    if request.method == "POST":
-        obj.delete()
-        return redirect('list_pessoa')
-    return render(request, 'ubs/pessoa/delete.html', {'obj': obj})

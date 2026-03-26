@@ -29,10 +29,3 @@ def update_appointment(request, id):
         return redirect('list_appointment')
     return render(request, 'ubs/appointment/update.html', {'form': form})
 
-
-def delete_appointment(request, id):
-    obj = get_object_or_404(Appointment, id=id)
-    if request.method == "POST":
-        obj.delete()
-        return redirect('list_appointment')
-    return render(request, 'ubs/appointment/delete.html', {'obj': obj})

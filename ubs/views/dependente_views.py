@@ -30,9 +30,3 @@ def update_dependente(request, id):
     return render(request, 'ubs/dependente/update.html', {'form': form})
 
 
-def delete_dependente(request, id):
-    obj = get_object_or_404(Dependente, id=id)
-    if request.method == "POST":
-        obj.delete()
-        return redirect('list_dependente')
-    return render(request, 'ubs/dependente/delete.html', {'obj': obj})

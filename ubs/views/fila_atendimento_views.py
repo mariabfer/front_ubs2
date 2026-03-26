@@ -30,9 +30,3 @@ def update_fila(request, id):
     return render(request, 'ubs/fila/update.html', {'form': form})
 
 
-def delete_fila(request, id):
-    obj = get_object_or_404(FilaAtendimento, id=id)
-    if request.method == "POST":
-        obj.delete()
-        return redirect('list_fila')
-    return render(request, 'ubs/fila/delete.html', {'obj': obj})

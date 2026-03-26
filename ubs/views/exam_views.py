@@ -29,10 +29,3 @@ def update_exam(request, id):
         return redirect('list_exam')
     return render(request, 'ubs/exam/update.html', {'form': form})
 
-
-def delete_exam(request, id):
-    obj = get_object_or_404(Exam, id=id)
-    if request.method == "POST":
-        obj.delete()
-        return redirect('list_exam')
-    return render(request, 'ubs/exam/delete.html', {'obj': obj})

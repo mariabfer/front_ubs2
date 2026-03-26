@@ -155,5 +155,9 @@ urlpatterns = [
     path('anamneses/novo/', anamnese_views.create_anamnese, name='create_anamnese'),
     path('anamneses/<int:id>/', anamnese_views.detail_anamnese, name='detail_anamnese'),
     path('anamneses/<int:id>/editar/', anamnese_views.update_anamnese, name='update_anamnese'),
-   
+
+    path('hipotese/novo/', hypothesis_views.create_hypothesis, name= 'create_anamnese' ),
+
+    path('medicacaoConsulta/novo/', medication_appoi_views.create_medication_appoi, name= 'create_medication_appoi' )
+
 ]

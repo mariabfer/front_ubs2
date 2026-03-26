@@ -6,3 +6,5 @@ class AddressAdmin(admin.ModelAdmin):
 
 admin.site.register(Address, AddressAdmin)
 
+
+
