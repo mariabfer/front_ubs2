@@ -1,0 +1,20 @@
+{% extends 'ubs/base.html' %}
+
+{% block titulo %}Lista de Consulta{% endblock %}
+
+{% block corpo %}
+    <h2>Lista de Consulta</h2>
+    <ul>
+        {% if appointments %}
+            {% for appointments in appointments %}
+                <li>{{ appointments }}</li>
+            {% endfor %}
+        {% else %}
+            <p>Nenhum consulta encontrado.</p>
+        {% endif %}
+    </ul>
+
+    {% else %}
+        <p>Nenhum consulta encontrado.</p>
+    {% endif %}
+{% endblock %}

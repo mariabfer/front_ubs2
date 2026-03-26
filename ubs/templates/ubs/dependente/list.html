@@ -1,0 +1,20 @@
+{% extends 'ubs/base.html' %}
+
+{% block titulo %}Lista de Dependente{% endblock %}
+
+{% block corpo %}
+    <h2>Lista de Dependente</h2>
+    <ul>
+        {% if dependentes %}
+            {% for dependentes in dependentes %}
+                <li>{{ dependentes }}</li>
+            {% endfor %}
+        {% else %}
+            <p>Nenhum dependente encontrado.</p>
+        {% endif %}
+    </ul>
+
+    {% else %}
+        <p>Nenhum dependente encontrado.</p>
+    {% endif %}
+{% endblock %}

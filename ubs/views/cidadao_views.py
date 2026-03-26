@@ -8,17 +8,17 @@ def create_cidadao(request):
     if form.is_valid():
         form.save()
         return redirect('list_cidadao')
-    return render(request, 'cidadao/create.html', {'form': form})
+    return render(request, 'ubs/cidadao/create.html', {'form': form})
 
 
 def list_cidadao(request):
     data = Cidadao.objects.select_related('pessoa', 'address', 'ubs').all()
-    return render(request, 'cidadao/list.html', {'cidadaos': data})
+    return render(request, 'ubs/cidadao/list.html', {'cidadaos': data})
 
 
 def detail_cidadao(request, id):
     obj = get_object_or_404(Cidadao, id=id)
-    return render(request, 'cidadao/detail.html', {'obj': obj})
+    return render(request, 'ubs/cidadao/detail.html', {'obj': obj})
 
 
 def update_cidadao(request, id):
@@ -27,7 +27,7 @@ def update_cidadao(request, id):
     if form.is_valid():
         form.save()
         return redirect('list_cidadao')
-    return render(request, 'cidadao/update.html', {'form': form})
+    return render(request, 'ubs/cidadao/update.html', {'form': form})
 
 
 def delete_cidadao(request, id):
@@ -35,4 +35,4 @@ def delete_cidadao(request, id):
     if request.method == "POST":
         obj.delete()
         return redirect('list_cidadao')
-    return render(request, 'cidadao/delete.html', {'obj': obj})
+    return render(request, 'ubs/cidadao/delete.html', {'obj': obj})

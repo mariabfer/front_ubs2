@@ -1,0 +1,11 @@
+{% extends 'ubs/base.html' %}
+
+{% block titulo %}Adicionar Dependente{% endblock %}
+
+{% block corpo %}
+    <h2>Adicionar Dependente</h2>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" value="Cadastrar">Salvar</button>
+{% endblock %}

@@ -8,7 +8,7 @@ def create_appointment(request):
     if form.is_valid():
         form.save()
         return redirect('list_appointment')
-    return render(request, 'appointment/create.html', {'form': form})
+    return render(request, 'ubs/appointment/create.html', {'form': form})
 
 
 def list_appointment(request):
@@ -18,7 +18,7 @@ def list_appointment(request):
 
 def detail_appointment(request, id):
     obj = get_object_or_404(Appointment, id=id)
-    return render(request, 'appointment/detail.html', {'obj': obj})
+    return render(request, 'ubs/appointment/detail.html', {'obj': obj})
 
 
 def update_appointment(request, id):
@@ -27,7 +27,7 @@ def update_appointment(request, id):
     if form.is_valid():
         form.save()
         return redirect('list_appointment')
-    return render(request, 'appointment/update.html', {'form': form})
+    return render(request, 'ubs/appointment/update.html', {'form': form})
 
 
 def delete_appointment(request, id):
@@ -35,4 +35,4 @@ def delete_appointment(request, id):
     if request.method == "POST":
         obj.delete()
         return redirect('list_appointment')
-    return render(request, 'appointment/delete.html', {'obj': obj})
+    return render(request, 'ubs/appointment/delete.html', {'obj': obj})

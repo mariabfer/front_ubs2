@@ -8,17 +8,17 @@ def create_documento(request):
     if form.is_valid():
         form.save()
         return redirect('list_documento')
-    return render(request, 'documento/create.html', {'form': form})
+    return render(request, 'ubs/documento/create.html', {'form': form})
 
 
 def list_documento(request):
     data = Documento.objects.select_related('pessoa').all()
-    return render(request, 'documento/list.html', {'documentos': data})
+    return render(request, 'ubs/documento/list.html', {'documentos': data})
 
 
 def detail_documento(request, id):
     obj = get_object_or_404(Documento, id=id)
-    return render(request, 'documento/detail.html', {'obj': obj})
+    return render(request, 'ubs/documento/detail.html', {'obj': obj})
 
 
 def update_documento(request, id):
@@ -27,7 +27,7 @@ def update_documento(request, id):
     if form.is_valid():
         form.save()
         return redirect('list_documento')
-    return render(request, 'documento/update.html', {'form': form})
+    return render(request, 'ubs/documento/update.html', {'form': form})
 
 
 def delete_documento(request, id):
@@ -35,4 +35,4 @@ def delete_documento(request, id):
     if request.method == "POST":
         obj.delete()
         return redirect('list_documento')
-    return render(request, 'documento/delete.html', {'obj': obj})
+    return render(request, 'ubs/documento/delete.html', {'obj': obj})

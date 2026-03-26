@@ -10,12 +10,12 @@ def create_address(request):
         form.save()
         return redirect('list_address')
 
-    return render(request, 'address/create.html', {'form': form})
+    return render(request, 'ubs/address/create.html', {'form': form})
 
 
 def list_address(request):
     addresses = Address.objects.all()
-    return render(request, 'address/list.html', {'addresses': addresses})
+    return render(request, 'ubs/address/list.html', {'addresses': addresses})
 
 
 def update_address(request, id):
@@ -26,7 +26,7 @@ def update_address(request, id):
         form.save()
         return redirect('list_address')
 
-    return render(request, 'address/update.html', {'form': form})
+    return render(request, 'ubs/address/update.html', {'form': form})
 
 
 def delete_address(request, id):
@@ -36,4 +36,4 @@ def delete_address(request, id):
         address.delete()
         return redirect('list_address')
 
-    return render(request, 'address/delete.html', {'address': address})
+    return render(request, 'ubs/address/delete.html', {'address': address})

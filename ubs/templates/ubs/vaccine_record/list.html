@@ -1,0 +1,20 @@
+{% extends 'ubs/base.html' %}
+
+{% block titulo %}Lista dos Registros de Vacina{% endblock %}
+
+{% block corpo %}
+    <h2>Lista dos Registros de Vacina</h2>
+    <ul>
+        {% if reg_vacina %}
+            {% for reg_vacina in reg_vacina %}
+                <li>{{ reg_vacina }}</li>
+            {% endfor %}
+        {% else %}
+            <p>Nenhum registro encontrado.</p>
+        {% endif %}
+    </ul>
+
+    {% else %}
+        <p>Nenhum registro encontrado.</p>
+    {% endif %}
+{% endblock %}

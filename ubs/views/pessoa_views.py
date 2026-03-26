@@ -8,17 +8,17 @@ def create_pessoa(request):
     if form.is_valid():
         form.save()
         return redirect('list_pessoa')
-    return render(request, 'pessoa/create.html', {'form': form})
+    return render(request, 'ubs/pessoa/create.html', {'form': form})
 
 
 def list_pessoa(request):
     data = Pessoa.objects.select_related('ubs').all()
-    return render(request, 'pessoa/list.html', {'pessoas': data})
+    return render(request, 'ubs/pessoa/list.html', {'pessoas': data})
 
 
 def detail_pessoa(request, id):
     obj = get_object_or_404(Pessoa, id=id)
-    return render(request, 'pessoa/detail.html', {'obj': obj})
+    return render(request, 'ubs/pessoa/detail.html', {'obj': obj})
 
 
 def update_pessoa(request, id):
@@ -27,7 +27,7 @@ def update_pessoa(request, id):
     if form.is_valid():
         form.save()
         return redirect('list_pessoa')
-    return render(request, 'pessoa/update.html', {'form': form})
+    return render(request, 'ubs/pessoa/update.html', {'form': form})
 
 
 def delete_pessoa(request, id):
@@ -35,4 +35,4 @@ def delete_pessoa(request, id):
     if request.method == "POST":
         obj.delete()
         return redirect('list_pessoa')
-    return render(request, 'pessoa/delete.html', {'obj': obj})
+    return render(request, 'ubs/pessoa/delete.html', {'obj': obj})

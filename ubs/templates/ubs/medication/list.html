@@ -1,0 +1,20 @@
+{% extends 'ubs/base.html' %}
+
+{% block titulo %}Lista de Medicamento{% endblock %}
+
+{% block corpo %}
+    <h2>Lista de Medicamento</h2>
+    <ul>
+        {% if medications %}
+            {% for medications in medications %}
+                <li>{{ medications }}</li>
+            {% endfor %}
+        {% else %}
+            <p>Nenhum medicamentos encontrado.</p>
+        {% endif %}
+    </ul>
+
+    {% else %}
+        <p>Nenhum medicamento encontrado.</p>
+    {% endif %}
+{% endblock %}

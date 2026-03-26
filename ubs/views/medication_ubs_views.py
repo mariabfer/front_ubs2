@@ -8,17 +8,17 @@ def create_medication_ubs(request):
     if form.is_valid():
         form.save()
         return redirect('list_medication_ubs')
-    return render(request, 'medication_ubs/create.html', {'form': form})
+    return render(request, 'ubs/medication_ubs/create.html', {'form': form})
 
 
 def list_medication_ubs(request):
     data = MedicationUbs .objects.select_related('medication', 'ubs').all()
-    return render(request, 'medication_ubs/list.html', {'items': data})
+    return render(request, 'ubs/medication_ubs/list.html', {'items': data})
 
 
 def detail_medication_ubs(request, id):
     obj = get_object_or_404(MedicationUbs , id=id)
-    return render(request, 'medication_ubs/detail.html', {'obj': obj})
+    return render(request, 'ubs/medication_ubs/detail.html', {'obj': obj})
 
 
 def update_medication_ubs(request, id):
@@ -27,7 +27,7 @@ def update_medication_ubs(request, id):
     if form.is_valid():
         form.save()
         return redirect('list_medication_ubs')
-    return render(request, 'medication_ubs/update.html', {'form': form})
+    return render(request, 'ubs/medication_ubs/update.html', {'form': form})
 
 
 def delete_medication_ubs(request, id):
@@ -35,4 +35,4 @@ def delete_medication_ubs(request, id):
     if request.method == "POST":
         obj.delete()
         return redirect('list_medication_ubs')
-    return render(request, 'medication_ubs/delete.html', {'obj': obj})
+    return render(request, 'ubs/medication_ubs/delete.html', {'obj': obj})

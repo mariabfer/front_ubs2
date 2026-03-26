@@ -1,0 +1,20 @@
+{% extends 'ubs/base.html' %}
+
+{% block titulo %}Lista de Medicamento-Consulta{% endblock %}
+
+{% block corpo %}
+    <h2>Lista de Medicamento-Consulta</h2>
+    <ul>
+        {% if address %}
+            {% for address in address %}
+                <li>{{ address }}</li>
+            {% endfor %}
+        {% else %}
+            <p>Nenhum Medicamento-Consulta encontrado.</p>
+        {% endif %}
+    </ul>
+
+    {% else %}
+        <p>Nenhum Medicamento-Consulta encontrado.</p>
+    {% endif %}
+{% endblock %}

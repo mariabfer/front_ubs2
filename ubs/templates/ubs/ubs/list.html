@@ -1,0 +1,20 @@
+{% extends 'ubs/base.html' %}
+
+{% block titulo %}Lista de Ubs{% endblock %}
+
+{% block corpo %}
+    <h2>Lista de Ubs</h2>
+    <ul>
+        {% if ubs_list %}
+            {% for ubs_list in ubs_list %}
+                <li>{{ ubs_list }}</li>
+            {% endfor %}
+        {% else %}
+            <p>Nenhuma Ubs encontrado.</p>
+        {% endif %}
+    </ul>
+
+    {% else %}
+        <p>Nenhuma Ubs encontrado.</p>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'ubs/base.html' %}
+
+{% block titulo %}Lista de Email{% endblock %}
+
+{% block corpo %}
+    <h2>Lista de Email</h2>
+    <ul>
+        {% if emails %}
+            {% for emails in emails %}
+                <li>{{ emails }}</li>
+            {% endfor %}
+        {% else %}
+            <p>Nenhum Email encontrado.</p>
+        {% endif %}
+    </ul>
+
+    {% else %}
+        <p>Nenhum Email encontrado.</p>
+    {% endif %}
+{% endblock %}

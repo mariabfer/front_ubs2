@@ -1,0 +1,17 @@
+{% extends 'ubs/base.html' %}
+
+{% block titulo %}Lista de Agendamento{% endblock %}
+
+{% block corpo %}
+    <h2>Lista de Agendamento</h2>
+    <ul>
+        {% if agendamentos %}
+            {% for agendamento in agendamentos %}
+                <li>{{ agendamento }}</li>
+       {% endfor %}
+    </ul>
+
+    {% else %}
+        <p>Nenhum agendamento encontrado.</p>
+    {% endif %}
+{% endblock %}

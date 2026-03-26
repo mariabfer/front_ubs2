@@ -10,12 +10,12 @@ def create_agendamento(request):
         form.save()
         return redirect('list_agendamento')
 
-    return render(request, 'agendamento/create.html', {'form': form})
+    return render(request, 'ubs/agendamento/create.html', {'form': form})
 
 
 def list_agendamento(request):
     agendamentos = Agendamento.objects.select_related('cidadao').all()
-    return render(request, 'agendamento/list.html', {'agendamentos': agendamentos})
+    return render(request, 'ubs/agendamento/list.html', {'agendamentos': agendamentos})
 
 
 def update_agendamento(request, id):
@@ -26,7 +26,7 @@ def update_agendamento(request, id):
         form.save()
         return redirect('list_agendamento')
 
-    return render(request, 'agendamento/update.html', {'form': form})
+    return render(request, 'ubs/agendamento/update.html', {'form': form})
 
 
 def delete_agendamento(request, id):
@@ -36,4 +36,4 @@ def delete_agendamento(request, id):
         agendamento.delete()
         return redirect('list_agendamento')
 
-    return render(request, 'agendamento/delete.html', {'agendamento': agendamento})
+    return render(request, 'ubs/agendamento/delete.html', {'agendamento': agendamento})

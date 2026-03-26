@@ -14,7 +14,7 @@ def create_hypothesis(request, appointment_id):
         obj.save()
         return redirect('detail_appointment', id=appointment.id)
 
-    return render(request, 'hypothesis/create.html', {'form': form})
+    return render(request, 'ubs/hypothesis/create.html', {'form': form})
 
 
 def delete_hypothesis(request, id):

@@ -1,0 +1,20 @@
+{% extends 'ubs/base.html' %}
+
+{% block titulo %}Lista de Cidadão{% endblock %}
+
+{% block corpo %}
+    <h2>Lista de Cidadão</h2>
+    <ul>
+        {% if cidadaos %}
+            {% for cidadaos in cidadaos %}
+                <li>{{ cidadaos }}</li>
+            {% endfor %}
+        {% else %}
+            <p>Nenhum cidadão encontrado.</p>
+        {% endif %}
+    </ul>
+
+    {% else %}
+        <p>Nenhum cidadão encontrado.</p>
+    {% endif %}
+{% endblock %}

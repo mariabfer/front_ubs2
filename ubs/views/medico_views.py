@@ -8,17 +8,17 @@ def create_medico(request):
     if form.is_valid():
         form.save()
         return redirect('list_medico')
-    return render(request, 'medico/create.html', {'form': form})
+    return render(request, 'ubs/medico/create.html', {'form': form})
 
 
 def list_medico(request):
     data = Medico.objects.select_related('pessoa', 'ubs').all()
-    return render(request, 'medico/list.html', {'medicos': data})
+    return render(request, 'ubs/medico/list.html', {'medicos': data})
 
 
 def detail_medico(request, id):
     obj = get_object_or_404(Medico, id=id)
-    return render(request, 'medico/detail.html', {'obj': obj})
+    return render(request, 'ubs/medico/detail.html', {'obj': obj})
 
 
 def update_medico(request, id):
@@ -27,7 +27,7 @@ def update_medico(request, id):
     if form.is_valid():
         form.save()
         return redirect('list_medico')
-    return render(request, 'medico/update.html', {'form': form})
+    return render(request, 'ubs/medico/update.html', {'form': form})
 
 
 def delete_medico(request, id):
@@ -35,4 +35,4 @@ def delete_medico(request, id):
     if request.method == "POST":
         obj.delete()
         return redirect('list_medico')
-    return render(request, 'medico/delete.html', {'obj': obj})
+    return render(request, 'ubs/medico/delete.html', {'obj': obj})

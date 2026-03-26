@@ -8,17 +8,17 @@ def create_enfermeiro(request):
     if form.is_valid():
         form.save()
         return redirect('list_enfermeiro')
-    return render(request, 'enfermeiro/create.html', {'form': form})
+    return render(request, 'ubs/enfermeiro/create.html', {'form': form})
 
 
 def list_enfermeiro(request):
     enfermeiros = Enfermeiro.objects.select_related('pessoa', 'ubs').all()
-    return render(request, 'enfermeiro/list.html', {'enfermeiros': enfermeiros})
+    return render(request, 'ubs/enfermeiro/list.html', {'enfermeiros': enfermeiros})
 
 
 def detail_enfermeiro(request, id):
     obj = get_object_or_404(Enfermeiro, id=id)
-    return render(request, 'enfermeiro/detail.html', {'obj': obj})
+    return render(request, 'ubs/enfermeiro/detail.html', {'obj': obj})
 
 
 def update_enfermeiro(request, id):
@@ -27,7 +27,7 @@ def update_enfermeiro(request, id):
     if form.is_valid():
         form.save()
         return redirect('list_enfermeiro')
-    return render(request, 'enfermeiro/update.html', {'form': form})
+    return render(request, 'ubs/enfermeiro/update.html', {'form': form})
 
 
 def delete_enfermeiro(request, id):
@@ -35,4 +35,4 @@ def delete_enfermeiro(request, id):
     if request.method == "POST":
         obj.delete()
         return redirect('list_enfermeiro')
-    return render(request, 'enfermeiro/delete.html', {'obj': obj})
+    return render(request, 'ubs/enfermeiro/delete.html', {'obj': obj})

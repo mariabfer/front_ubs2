@@ -1,0 +1,20 @@
+{% extends 'ubs/base.html' %}
+
+{% block titulo %}Lista de Exame{% endblock %}
+
+{% block corpo %}
+    <h2>Lista de Exame</h2>
+    <ul>
+        {% if exams %}
+            {% for exams in exams %}
+                <li>{{ exams }}</li>
+            {% endfor %}
+        {% else %}
+            <p>Nenhum exame encontrado.</p>
+        {% endif %}
+    </ul>
+
+    {% else %}
+        <p>Nenhum exame encontrado.</p>
+    {% endif %}
+{% endblock %}

@@ -8,17 +8,17 @@ def create_dependente(request):
     if form.is_valid():
         form.save()
         return redirect('list_dependente')
-    return render(request, 'dependente/create.html', {'form': form})
+    return render(request, 'ubs/dependente/create.html', {'form': form})
 
 
 def list_dependente(request):
     data = Dependente.objects.select_related('responsavel', 'dependente').all()
-    return render(request, 'dependente/list.html', {'dependentes': data})
+    return render(request, 'ubs/dependente/list.html', {'dependentes': data})
 
 
 def detail_dependente(request, id):
     obj = get_object_or_404(Dependente, id=id)
-    return render(request, 'dependente/detail.html', {'obj': obj})
+    return render(request, 'ubs/dependente/detail.html', {'obj': obj})
 
 
 def update_dependente(request, id):
@@ -27,7 +27,7 @@ def update_dependente(request, id):
     if form.is_valid():
         form.save()
         return redirect('list_dependente')
-    return render(request, 'dependente/update.html', {'form': form})
+    return render(request, 'ubs/dependente/update.html', {'form': form})
 
 
 def delete_dependente(request, id):
@@ -35,4 +35,4 @@ def delete_dependente(request, id):
     if request.method == "POST":
         obj.delete()
         return redirect('list_dependente')
-    return render(request, 'dependente/delete.html', {'obj': obj})
+    return render(request, 'ubs/dependente/delete.html', {'obj': obj})

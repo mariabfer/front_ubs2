@@ -1,0 +1,20 @@
+{% extends 'ubs/base.html' %}
+
+{% block titulo %}Lista de Anamnese{% endblock %}
+
+{% block corpo %}
+    <h2>Lista de Anamnese</h2>
+    <ul>
+        {% if anamnese %}
+            {% for anamnese in anamnese %}
+                <li>{{ anamnese }}</li>
+            {% endfor %}
+        {% else %}
+            <p>Nenhum anamnese encontrado.</p>
+        {% endif %}
+    </ul>
+
+    {% else %}
+        <p>Nenhum anamnese encontrado.</p>
+    {% endif %}
+{% endblock %}

@@ -14,13 +14,13 @@ def create_record_vaccine(request, num_sus):
         obj.save()
         return redirect('detail_cidadao', id=cidadao.id)
 
-    return render(request, 'vaccine_record/create.html', {'form': form})
+    return render(request, 'ubs/vaccine_record/create.html', {'form': form})
 
 def list_vaccine_records(request, num_sus):
     records = RecordVaccine.objects.select_related(
         'citizen', 'VaccineUbs ', 'nurse', 'ubs'
     ).filter(citizen__num_sus=num_sus)
 
-    return render(request, 'vaccine_record/list.html', {
+    return render(request, 'ubs/vaccine_record/list.html', {
         'records': records
     })

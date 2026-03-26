@@ -8,17 +8,17 @@ def create_exam(request):
     if form.is_valid():
         form.save()
         return redirect('list_exam')
-    return render(request, 'exam/create.html', {'form': form})
+    return render(request, 'ubs/exam/create.html', {'form': form})
 
 
 def list_exam(request):
     exams = Exam.objects.select_related('appointment').all()
-    return render(request, 'exam/list.html', {'exams': exams})
+    return render(request, 'ubs/exam/list.html', {'exams': exams})
 
 
 def detail_exam(request, id):
     obj = get_object_or_404(Exam, id=id)
-    return render(request, 'exam/detail.html', {'obj': obj})
+    return render(request, 'ubs/exam/detail.html', {'obj': obj})
 
 
 def update_exam(request, id):
@@ -27,7 +27,7 @@ def update_exam(request, id):
     if form.is_valid():
         form.save()
         return redirect('list_exam')
-    return render(request, 'exam/update.html', {'form': form})
+    return render(request, 'ubs/exam/update.html', {'form': form})
 
 
 def delete_exam(request, id):
@@ -35,4 +35,4 @@ def delete_exam(request, id):
     if request.method == "POST":
         obj.delete()
         return redirect('list_exam')
-    return render(request, 'exam/delete.html', {'obj': obj})
+    return render(request, 'ubs/exam/delete.html', {'obj': obj})

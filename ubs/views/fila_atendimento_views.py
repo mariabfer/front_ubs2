@@ -8,17 +8,17 @@ def create_fila(request):
     if form.is_valid():
         form.save()
         return redirect('list_fila')
-    return render(request, 'fila/create.html', {'form': form})
+    return render(request, 'ubs/fila/create.html', {'form': form})
 
 
 def list_fila(request):
     filas = FilaAtendimento.objects.select_related('ubs', 'medico').all()
-    return render(request, 'fila/list.html', {'filas': filas})
+    return render(request, 'ubs/fila/list.html', {'filas': filas})
 
 
 def detail_fila(request, id):
     obj = get_object_or_404(FilaAtendimento, id=id)
-    return render(request, 'fila/detail.html', {'obj': obj})
+    return render(request, 'ubs/fila/detail.html', {'obj': obj})
 
 
 def update_fila(request, id):
@@ -27,7 +27,7 @@ def update_fila(request, id):
     if form.is_valid():
         form.save()
         return redirect('list_fila')
-    return render(request, 'fila/update.html', {'form': form})
+    return render(request, 'ubs/fila/update.html', {'form': form})
 
 
 def delete_fila(request, id):
@@ -35,4 +35,4 @@ def delete_fila(request, id):
     if request.method == "POST":
         obj.delete()
         return redirect('list_fila')
-    return render(request, 'fila/delete.html', {'obj': obj})
+    return render(request, 'ubs/fila/delete.html', {'obj': obj})

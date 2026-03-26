@@ -1,0 +1,20 @@
+{% extends 'ubs/base.html' %}
+
+{% block titulo %}Lista de Pessoa{% endblock %}
+
+{% block corpo %}
+    <h2>Lista de Pessoa</h2>
+    <ul>
+        {% if pessoas %}
+            {% for pessoas in pessoas %}
+                <li>{{ pessoas }}</li>
+            {% endfor %}
+        {% else %}
+            <p>Nenhum pessoa encontrado.</p>
+        {% endif %}
+    </ul>
+
+    {% else %}
+        <p>Nenhum pessoa encontrado.</p>
+    {% endif %}
+{% endblock %}

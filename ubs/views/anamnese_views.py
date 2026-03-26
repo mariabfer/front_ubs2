@@ -10,12 +10,12 @@ def create_anamnese(request):
         form.save()
         return redirect('list_anamnese')
 
-    return render(request, 'anamnese/create.html', {'form': form})
+    return render(request, 'ubs/anamnese/create.html', {'form': form})
 
 
 def list_anamnese(request):
     anamneses = Anamnese.objects.select_related('cidadao').all()
-    return render(request, 'anamnese/list.html', {'anamneses': anamneses})
+    return render(request, 'ubs/anamnese/list.html', {'anamneses': anamneses})
 
 
 def update_anamnese(request, id):
@@ -26,7 +26,7 @@ def update_anamnese(request, id):
         form.save()
         return redirect('list_anamnese')
 
-    return render(request, 'anamnese/update.html', {'form': form})
+    return render(request, 'ubs/anamnese/update.html', {'form': form})
 
 
 def delete_anamnese(request, id):
@@ -36,4 +36,4 @@ def delete_anamnese(request, id):
         anamnese.delete()
         return redirect('list_anamnese')
 
-    return render(request, 'anamnese/delete.html', {'anamnese': anamnese})
+    return render(request, 'ubs/anamnese/delete.html', {'anamnese': anamnese})

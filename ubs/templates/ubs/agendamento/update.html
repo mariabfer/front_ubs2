@@ -1,0 +1,11 @@
+{% extends 'ubs/base.html' %}
+
+{% block titulo %}Editar Agendamento{% endblock %}
+
+{% block corpo %}
+    <h2>Editar Agendamento</h2>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" value="Editar">Editar</button>
+{% endblock %}

@@ -8,17 +8,17 @@ def create_vaccine(request):
     if form.is_valid():
         form.save()
         return redirect('list_vaccine')
-    return render(request, 'vaccine/create.html', {'form': form})
+    return render(request, 'ubs/vaccine/create.html', {'form': form})
 
 
 def list_vaccine(request):
     data = Vaccine.objects.all()
-    return render(request, 'vaccine/list.html', {'vaccines': data})
+    return render(request, 'ubs/vaccine/list.html', {'vaccines': data})
 
 
 def detail_vaccine(request, id):
     obj = get_object_or_404(Vaccine, id=id)
-    return render(request, 'vaccine/detail.html', {'obj': obj})
+    return render(request, 'ubs/vaccine/detail.html', {'obj': obj})
 
 
 def update_vaccine(request, id):
@@ -27,7 +27,7 @@ def update_vaccine(request, id):
     if form.is_valid():
         form.save()
         return redirect('list_vaccine')
-    return render(request, 'vaccine/update.html', {'form': form})
+    return render(request, 'ubs/vaccine/update.html', {'form': form})
 
 
 def delete_vaccine(request, id):
@@ -35,4 +35,4 @@ def delete_vaccine(request, id):
     if request.method == "POST":
         obj.delete()
         return redirect('list_vaccine')
-    return render(request, 'vaccine/delete.html', {'obj': obj})
+    return render(request, 'ubs/vaccine/delete.html', {'obj': obj})

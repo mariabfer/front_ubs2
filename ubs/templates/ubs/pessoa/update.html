@@ -1,0 +1,11 @@
+{% extends 'ubs/base.html' %}
+
+{% block titulo %}Editar Pessoa{% endblock %}
+
+{% block corpo %}
+    <h2>Editar Pessoa</h2>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" value="Editar">Editar</button>
+{% endblock %}

@@ -8,17 +8,17 @@ def create_email(request):
     if form.is_valid():
         form.save()
         return redirect('list_email')
-    return render(request, 'email/create.html', {'form': form})
+    return render(request, 'ubs/email/create.html', {'form': form})
 
 
 def list_email(request):
     data = Email.objects.select_related('pessoa', 'ubs').all()
-    return render(request, 'email/list.html', {'emails': data})
+    return render(request, 'ubs/email/list.html', {'emails': data})
 
 
 def detail_email(request, id):
     obj = get_object_or_404(Email, id=id)
-    return render(request, 'email/detail.html', {'obj': obj})
+    return render(request, 'ubs/email/detail.html', {'obj': obj})
 
 
 def update_email(request, id):
@@ -27,7 +27,7 @@ def update_email(request, id):
     if form.is_valid():
         form.save()
         return redirect('list_email')
-    return render(request, 'email/update.html', {'form': form})
+    return render(request, 'ubs/email/update.html', {'form': form})
 
 
 def delete_email(request, id):
@@ -35,4 +35,4 @@ def delete_email(request, id):
     if request.method == "POST":
         obj.delete()
         return redirect('list_email')
-    return render(request, 'email/delete.html', {'obj': obj})
+    return render(request, 'ubs/email/delete.html', {'obj': obj})

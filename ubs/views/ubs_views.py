@@ -8,17 +8,17 @@ def create_ubs(request):
     if form.is_valid():
         form.save()
         return redirect('list_ubs')
-    return render(request, 'ubs/create.html', {'form': form})
+    return render(request, 'ubs/ubs/create.html', {'form': form})
 
 
 def list_ubs(request):
     data = Ubs.objects.select_related('address').all()
-    return render(request, 'ubs/list.html', {'ubs_list': data})
+    return render(request, 'ubs/ubs/list.html', {'ubs_list': data})
 
 
 def detail_ubs(request, id):
     obj = get_object_or_404(Ubs, id=id)
-    return render(request, 'ubs/detail.html', {'obj': obj})
+    return render(request, 'ubs/ubs/detail.html', {'obj': obj})
 
 
 def update_ubs(request, id):
@@ -27,7 +27,7 @@ def update_ubs(request, id):
     if form.is_valid():
         form.save()
         return redirect('list_ubs')
-    return render(request, 'ubs/update.html', {'form': form})
+    return render(request, 'ubs/ubs/update.html', {'form': form})
 
 
 def delete_ubs(request, id):
@@ -35,4 +35,4 @@ def delete_ubs(request, id):
     if request.method == "POST":
         obj.delete()
         return redirect('list_ubs')
-    return render(request, 'ubs/delete.html', {'obj': obj})
+    return render(request, 'ubs/ubs/delete.html', {'obj': obj})
